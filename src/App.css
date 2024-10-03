@@ -2,30 +2,153 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+
 html, body {
-  height: 100%;
-  overflow: hidden;
-  background-color: beige;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  font-family: "Inter", sans-serif;
 }
-.btn-answer {
-  @apply inline-block rounded border-amber-600;
-  @apply px-6 py-2 font-semibold mt-3 text-xl;
-  background-color: darkseagreen;
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #e5e7eb;
 }
+
 /* Navbar */
 .navbar {
-  @apply bg-white;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: center;
+  background-image: url("/public/bread-menu2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1.5rem;
 }
-nav {
-  @apply text-gray-500 transition hover:text-gray-500/75;
+.navbar-img {
+  width: 5rem;
+}
+.navbar-logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.8rem;
+}
+.navbar-header {
+  font-family: "Kay Pho Du", serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #e5e7eb;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+.navbar-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+.nav-item {
+  @apply block rounded-lg px-5 py-3 text-xs font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700;
+  background-color: lightgrey;
+
 }
 .login {
-  @apply inline-block rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none
+  @apply rounded bg-gray-700 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none;
   @apply focus:ring active:bg-indigo-500;
+}
+
+/* Footer */
+footer {
+  background-color: #374151;
+  height: 50px;
+  color: lightgrey;
+  align-content: center;
+  font-size: .8rem;
+}
+
+/* Home */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.2rem;
+  gap: .5rem;
+}
+.home-link {
+  margin-top: 1rem;
+  @apply inline-block rounded-full bg-gray-700 px-10 py-3 text-sm font-medium text-white transition hover:bg-gray-500;
+  @apply focus:ring active:bg-indigo-500;
+}
+.section-text h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #322B28;
+  text-shadow: 1px 1px 5px rgb(124, 120, 115);
+}
+.home-page > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-img {
+  width: 90%;
+}
+.section-text {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+  margin: .5rem 1rem;
+  text-align: justify;
+  padding: 1.5rem;
+  width: 90%;
+}
+.section-text p {
+  margin-top: 1.2rem;
+}
+
+/* Media Queries for Tablets */
+@media (min-width: 768px) {
+  .site-wrapper {
+    /*background-color: pink;*/
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .navbar-header {
+    font-size: 2.5rem;
+  }
+  .navbar-img {
+    width: 10rem;
+  }
+}
+
+/* Media Queries for Small Desktops/Laptops */
+@media (min-width: 1024px) {
+  .site-wrapper {
+/*    background-color: lightskyblue; */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .navbar-header {
+    font-size: 4rem;
+  }
+  .section-text {
+    margin: 0;
+  }
+  .section-text h2 {
+    font-size: 2rem;
+  }
+  .home-page > section {
+    flex-direction: row;
+   /* margin: 1.5rem; */
+    align-items: stretch;
+  }
+  .home-img {
+    width: 30%;
+  }
+  .home-benefits .home-img{
+    order: 2;
+  }
+  .home-page{
+    margin: 1.5rem;
+  }
 }

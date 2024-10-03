@@ -1,0 +1,506 @@
+[
+  {
+    "id": "a2b6789f-1c2d-4d0e-8a9e-8e36c2e7b11b",
+    "title": "Simple Sourdough Bread",
+    "ingredients": [
+      {
+        "name": "wheat flour",
+        "quantity": "450 grams"
+      },
+      {
+        "name": "rye flour",
+        "quantity": "50 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "300 ml"
+      },
+      {
+        "name": "salt",
+        "quantity": "10 grams"
+      }
+    ],
+    "image": "a2b6789f-1c2d-4d0e-8a9e-8e36c2e7b11b.jpg",
+    "instructions": "Mix all ingredients until combined, let it rest for 30 minutes. Knead the dough, then allow it to bulk ferment for 4 hours, performing stretch and folds every 30 minutes. Shape and proof overnight in the fridge before baking at 220°C for 30 minutes.",
+    "difficulty": "medium",
+    "duration": 300
+  },
+  {
+    "id": "b9e2911c-7b4e-4a0a-9af5-75d2b7e3acb9",
+    "title": "Whole Wheat Sourdough",
+    "ingredients": [
+      {
+        "name": "whole wheat flour",
+        "quantity": "500 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "350 ml"
+      },
+      {
+        "name": "salt",
+        "quantity": "10 grams"
+      }
+    ],
+    "image": "b9e2911c-7b4e-4a0a-9af5-75d2b7e3acb9.jpg",
+    "instructions": "Combine flour, water, and starter, let rest for 1 hour. Add salt and knead. Ferment for 6 hours with stretch and folds, then bake at 240°C for 20 minutes.",
+    "difficulty": "easy",
+    "duration": 360
+  },
+  {
+    "id": "d0f66b2a-05b4-4737-8ed0-f8b4d9f81fc2",
+    "title": "Rye Sourdough",
+    "ingredients": [
+      {
+        "name": "rye flour",
+        "quantity": "400 grams"
+      },
+      {
+        "name": "wheat flour",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "80 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "280 ml"
+      },
+      {
+        "name": "salt",
+        "quantity": "12 grams"
+      }
+    ],
+    "image": "d0f66b2a-05b4-4737-8ed0-f8b4d9f81fc2.jpg",
+    "instructions": "Mix all ingredients, knead the dough. Let it rest for 5 hours, folding it every hour. Shape and bake at 220°C for 40 minutes.",
+    "difficulty": "medium",
+    "duration": 340
+  },
+  {
+    "id": "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9",
+    "title": "Seeded Sourdough",
+    "ingredients": [
+      {
+        "name": "wheat flour",
+        "quantity": "400 grams"
+      },
+      {
+        "name": "rye flour",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "320 ml"
+      },
+      {
+        "name": "sunflower seeds",
+        "quantity": "50 grams"
+      },
+      {
+        "name": "salt",
+        "quantity": "10 grams"
+      }
+    ],
+    "image": "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9.jpg",
+    "instructions": "Combine flour, water, starter, and seeds. Rest for 1 hour, add salt, and knead. Bulk ferment for 4 hours, proof for 12 hours in the fridge. Bake at 230°C for 35 minutes.",
+    "difficulty": "medium",
+    "duration": 480
+  },
+  {
+    "id": "e8a012ab-9e5d-44f0-bc2f-74e8709e0b4d",
+    "title": "Sourdough Baguette",
+    "ingredients": [
+      {
+        "name": "bread flour",
+        "quantity": "500 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "120 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "350 ml"
+      },
+      {
+        "name": "salt",
+        "quantity": "12 grams"
+      }
+    ],
+    "image": "e8a012ab-9e5d-44f0-bc2f-74e8709e0b4d.jpg",
+    "instructions": "Mix ingredients and let rest for 30 minutes. Knead and ferment for 3 hours. Shape into baguettes, proof for 1 hour, then bake at 240°C for 20 minutes.",
+    "difficulty": "hard",
+    "duration": 240
+  },
+  {
+    "id": "c7f093dd-3787-4ecf-8de8-bbfcfe4b2a83",
+    "title": "Multigrain Sourdough",
+    "ingredients": [
+      {
+        "name": "whole wheat flour",
+        "quantity": "300 grams"
+      },
+      {
+        "name": "rye flour",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "330 ml"
+      },
+      {
+        "name": "oats",
+        "quantity": "50 grams"
+      },
+      {
+        "name": "salt",
+        "quantity": "12 grams"
+      }
+    ],
+    "image": "c7f093dd-3787-4ecf-8de8-bbfcfe4b2a83.jpg",
+    "instructions": "Mix all ingredients, let rest for 1 hour. Ferment for 5 hours with periodic folds. Shape, proof overnight, and bake at 220°C for 35 minutes.",
+    "difficulty": "medium",
+    "duration": 420
+  },
+  {
+    "id": "a9b7b1d1-6c1b-4b74-a10b-98f468f472cd",
+    "title": "Spelt Sourdough",
+    "ingredients": [
+      {
+        "name": "spelt flour",
+        "quantity": "500 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "350 ml"
+      },
+      {
+        "name": "salt",
+        "quantity": "10 grams"
+      }
+    ],
+    "image": "a9b7b1d1-6c1b-4b74-a10b-98f468f472cd.jpg",
+    "instructions": "Mix spelt flour, water, and starter. Rest for 30 minutes, then knead. Ferment for 4 hours, proof in the fridge, and bake at 230°C for 30 minutes.",
+    "difficulty": "medium",
+    "duration": 300
+  },
+  {
+    "id": "d8e1234e-73a6-4d3c-a4f5-2c2fc89eebf9",
+    "title": "Olive Sourdough",
+    "ingredients": [
+      {
+        "name": "bread flour",
+        "quantity": "450 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "320 ml"
+      },
+      {
+        "name": "olives",
+        "quantity": "80 grams"
+      },
+      {
+        "name": "salt",
+        "quantity": "12 grams"
+      }
+    ],
+    "image": "d8e1234e-73a6-4d3c-a4f5-2c2fc89eebf9.jpg",
+    "instructions": "Mix flour, water, and starter, fold in olives. Bulk ferment for 4 hours with stretch and folds. Proof overnight and bake at 220°C for 35 minutes.",
+    "difficulty": "medium",
+    "duration": 340
+  },
+  {
+    "id": "d3fba8f0-4a5c-4f97-87e1-42c7b3fa212b",
+    "title": "Sourdough Pizza Dough",
+    "ingredients": [
+      {
+        "name": "bread flour",
+        "quantity": "500 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "150 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "320 ml"
+      },
+      {
+        "name": "olive oil",
+        "quantity": "20 grams"
+      },
+      {
+        "name": "salt",
+        "quantity": "10 grams"
+      }
+    ],
+    "image": "d3fba8f0-4a5c-4f97-87e1-42c7b3fa212b.jpg",
+    "instructions": "Mix all ingredients and knead until smooth. Bulk ferment for 5 hours. Divide, shape into pizza balls, and proof for 2 hours before baking at 250°C for 10 minutes.",
+    "difficulty": "easy",
+    "duration": 420
+  },
+  {
+    "id": "f98e334e-14c7-45a7-9e77-2f9b4215a3b1",
+    "title": "Herb Sourdough",
+    "ingredients": [
+      {
+        "name": "wheat flour",
+        "quantity": "500 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "120 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "340 ml"
+      },
+      {
+        "name": "rosemary",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "thyme",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "salt",
+        "quantity": "10 grams"
+      }
+    ],
+    "image": "f98e334e-14c7-45a7-9e77-2f9b4215a3b1.jpg",
+    "instructions": "Combine all ingredients, let rest for 30 minutes. Knead and ferment for 4 hours with stretch and folds. Shape, proof, and bake at 220°C for 30 minutes.",
+    "difficulty": "medium",
+    "duration": 330
+  },
+  {
+    "id": "fa7d36c9-4b71-41a8-a2f0-e6e2b9d2b5b9",
+    "title": "Sourdough Focaccia",
+    "ingredients": [
+      {
+        "name": "bread flour",
+        "quantity": "500 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "400 ml"
+      },
+      {
+        "name": "olive oil",
+        "quantity": "50 ml"
+      },
+      {
+        "name": "salt",
+        "quantity": "12 grams"
+      },
+      {
+        "name": "rosemary",
+        "quantity": "1 tbsp"
+      }
+    ],
+    "image": "fa7d36c9-4b71-41a8-a2f0-e6e2b9d2b5b9.jpg",
+    "instructions": "Mix flour, water, and starter. Rest for 1 hour, add oil and salt. Ferment for 5 hours, stretch every 30 minutes. Spread on a tray, proof for 2 hours, top with rosemary, and bake at 230°C for 25 minutes.",
+    "difficulty": "medium",
+    "duration": 480
+  },
+  {
+    "id": "9cba2175-e66c-4a11-9c83-7489c231b6fa",
+    "title": "Sourdough English Muffins",
+    "ingredients": [
+      {
+        "name": "all-purpose flour",
+        "quantity": "400 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "milk",
+        "quantity": "250 ml"
+      },
+      {
+        "name": "butter",
+        "quantity": "30 grams"
+      },
+      {
+        "name": "salt",
+        "quantity": "10 grams"
+      }
+    ],
+    "image": "9cba2175-e66c-4a11-9c83-7489c231b6fa.jpg",
+    "instructions": "Mix flour, milk, starter, and salt. Knead, rest for 1 hour. Roll out dough, cut into rounds, proof for 2 hours. Cook on a skillet until golden on both sides.",
+    "difficulty": "easy",
+    "duration": 240
+  },
+  {
+    "id": "d36f8e5d-733b-47f8-bdac-5b9e42b68e49",
+    "title": "Sourdough Pancakes",
+    "ingredients": [
+      {
+        "name": "starter",
+        "quantity": "150 grams"
+      },
+      {
+        "name": "flour",
+        "quantity": "200 grams"
+      },
+      {
+        "name": "milk",
+        "quantity": "200 ml"
+      },
+      {
+        "name": "egg",
+        "quantity": "1 large"
+      },
+      {
+        "name": "baking soda",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "salt",
+        "quantity": "1/2 tsp"
+      }
+    ],
+    "image": "d36f8e5d-733b-47f8-bdac-5b9e42b68e49.jpg",
+    "instructions": "Mix all ingredients until smooth. Let rest for 15 minutes, then cook pancakes on a hot griddle until bubbles form. Flip and cook until golden.",
+    "difficulty": "easy",
+    "duration": 30
+  },
+  {
+    "id": "f765db90-30cb-4ef1-b5f2-0a915a456aab",
+    "title": "Sourdough Cinnamon Rolls",
+    "ingredients": [
+      {
+        "name": "bread flour",
+        "quantity": "500 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "150 grams"
+      },
+      {
+        "name": "milk",
+        "quantity": "200 ml"
+      },
+      {
+        "name": "butter",
+        "quantity": "50 grams"
+      },
+      {
+        "name": "sugar",
+        "quantity": "50 grams"
+      },
+      {
+        "name": "cinnamon",
+        "quantity": "1 tbsp"
+      },
+      {
+        "name": "salt",
+        "quantity": "10 grams"
+      }
+    ],
+    "image": "f765db90-30cb-4ef1-b5f2-0a915a456aab.jpg",
+    "instructions": "Mix flour, milk, starter, and salt. Rest for 1 hour, then roll out dough. Spread with butter, sugar, and cinnamon. Roll up and cut into rolls. Proof for 4 hours, then bake at 180°C for 25 minutes.",
+    "difficulty": "hard",
+    "duration": 300
+  },
+  {
+    "id": "a6be1584-58f0-4abf-8f39-6d9fbf6a7c3c",
+    "title": "Sourdough Banana Bread",
+    "ingredients": [
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "bananas",
+        "quantity": "3 large"
+      },
+      {
+        "name": "flour",
+        "quantity": "200 grams"
+      },
+      {
+        "name": "sugar",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "butter",
+        "quantity": "50 grams"
+      },
+      {
+        "name": "baking powder",
+        "quantity": "1 tsp"
+      },
+      {
+        "name": "salt",
+        "quantity": "1/2 tsp"
+      }
+    ],
+    "image": "a6be1584-58f0-4abf-8f39-6d9fbf6a7c3c.jpg",
+    "instructions": "Mash bananas and mix with starter, sugar, and butter. Add dry ingredients, stir until combined. Pour into a loaf pan and bake at 180°C for 50 minutes.",
+    "difficulty": "easy",
+    "duration": 60
+  },
+  {
+    "id": "c1b62c3a-94e7-4d29-999d-f24db3d5d81b",
+    "title": "Sourdough Pretzels",
+    "ingredients": [
+      {
+        "name": "bread flour",
+        "quantity": "450 grams"
+      },
+      {
+        "name": "starter",
+        "quantity": "100 grams"
+      },
+      {
+        "name": "water",
+        "quantity": "250 ml"
+      },
+      {
+        "name": "baking soda",
+        "quantity": "2 tbsp"
+      },
+      {
+        "name": "salt",
+        "quantity": "12 grams"
+      }
+    ],
+    "image": "c1b62c3a-94e7-4d29-999d-f24db3d5d81b.jpg",
+    "instructions": "Mix flour, water, and starter. Rest for 30 minutes. Knead and let rise for 4 hours. Shape pretzels, dip in boiling water with baking soda, then bake at 220°C for 15 minutes.",
+    "difficulty": "medium",
+    "duration": 240
+  }
+]

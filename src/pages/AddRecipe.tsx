@@ -1,3 +1,3 @@
 export default function AddRecipe() {
-  return <>AddRecipe</>
+  return <>Add a Recipe</>
 }
