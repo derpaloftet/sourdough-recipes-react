@@ -675,16 +675,6 @@ html, body {
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
-/* Footer */
-
-footer {
-  background-color: #374151;
-  height: 50px;
-  color: lightgrey;
-  align-content: center;
-  font-size: .8rem;
-}
-
 /* Home */
 
 .home-page {
@@ -694,7 +684,7 @@ footer {
   gap: .5rem;
 }
 
-.home-link {
+.basic-btn {
   margin-top: 1rem;
   display: inline-block;
   border-radius: 9999px;
@@ -716,18 +706,18 @@ footer {
   transition-duration: 150ms;
 }
 
-.home-link:hover {
+.basic-btn:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
 }
 
-.home-link:focus {
+.basic-btn:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.home-link:active {
+.basic-btn:active {
   --tw-bg-opacity: 1;
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
@@ -761,7 +751,7 @@ footer {
   margin-top: 1.2rem;
 }
 
-/* Recipes */
+/* Recipes Layout */
 
 .recipes-header {
   font-family: "Kay Pho Du", serif;
@@ -771,7 +761,7 @@ footer {
   margin-top: .5rem;
 }
 
-.recipes-cards {
+.recipes-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -801,6 +791,55 @@ footer {
   -webkit-transform: rotate(135deg);
 }
 
+/* Recipe Cards */
+
+.recipe-card {
+  position: relative;
+}
+
+.btn-like {
+  position: absolute;
+  color: lightslategrey;
+  cursor: pointer;
+  font-size: 1.4rem;
+  top: 10px;
+  right: 10px;
+}
+
+.recipe-title {
+  font-family: "Kay Pho Du", serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #374151;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  margin: .2rem;
+}
+
+.recipe-keywords {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-content: center;
+}
+
+.recipe-keyword {
+  border-radius: 25px;
+  border: 2px solid #374151;
+  padding: .2rem;
+  width: 40%;
+  font-size: .9rem;
+}
+
+/* Footer */
+
+footer {
+  background-color: #374151;
+  height: 50px;
+  color: lightgrey;
+  align-content: center;
+  font-size: .8rem;
+}
+
 /* Media Queries for Tablets */
 
 @media (min-width: 768px) {
@@ -816,6 +855,10 @@ footer {
 
   .navbar-img {
     width: 10rem;
+  }
+
+  .recipe-title {
+    font-size: 1.2rem;
   }
 }
 
@@ -862,9 +905,13 @@ footer {
     font-size: 3rem;
   }
 
-  .recipes-cards {
+  .recipes-layout {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
+  }
+
+  .recipe-title {
+    font-size: 1.3rem;
   }
 }

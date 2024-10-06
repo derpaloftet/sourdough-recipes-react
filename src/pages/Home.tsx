@@ -21,7 +21,7 @@ export default function Home() {
             achieve the perfect loaf.
           </p>
           <NavLink to="/recipes"
-            className="home-link"
+            className="basic-btn"
           >
             Check the Recipes
           </NavLink>
@@ -56,7 +56,7 @@ export default function Home() {
             Just log in into your account and let the others taste your best sourdough recipes!
           </p>
           <NavLink to="/login"
-                   className="home-link"
+                   className="basic-btn"
           >
             Go to Login
           </NavLink>

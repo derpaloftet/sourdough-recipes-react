@@ -28,11 +28,13 @@ export default function Recipes() {
       <div className="recipe-card">
         <img className="recipe-image" src={breadWhite}/>
         <div className="recipe-title">{item.title}</div>
-        <div className="recipe-difficulty">Difficulty: {item.difficulty}</div>
-        <div className="recipe-duration">Duration: {item.duration} minutes</div>
+        <div className="recipe-keywords">
+          <div className="recipe-keyword">{item.difficulty}</div>
+          <div className="recipe-keyword">{item.duration} minutes</div>
+        </div>
         <button className="btn-like">❤</button>
         <NavLink to="/login"
-                 className="home-link"
+                 className="basic-btn"
         >
           Go to Recipe Details
         </NavLink>
@@ -43,13 +45,13 @@ export default function Recipes() {
   return (
     <>
       <h2 className="recipes-header">Recipes</h2>
-      <div className="recipes-cards">
+      <div className="recipes-layout">
         {recipeElement}
       </div>
       <div className="recipes-pages">
-      <button onClick={handlePrevPage}><i className="arrow left"></i></button>
+      <button onClick={handlePrevPage} disabled={currentPage === 1}><i className="arrow left"></i></button>
       {currentPage}
-      <button onClick={handleNextPage}><i className="arrow right"></i></button>
+      <button onClick={handleNextPage} disabled={currentPage === totalPages}><i className="arrow right"></i></button>
       </div>
     </>
   )
