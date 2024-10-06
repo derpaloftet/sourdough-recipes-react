@@ -106,6 +106,40 @@ footer {
   margin-top: 1.2rem;
 }
 
+/* Recipes */
+.recipes-header {
+  font-family: "Kay Pho Du", serif;
+  font-weight: 700;
+  font-size: 2rem;
+  text-shadow: 1px 1px 5px rgb(124, 120, 115);
+  margin-top: .5rem;
+}
+.recipes-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: .5rem;
+}
+.recipes-pages {
+  display: flex;
+  margin: 1rem auto;
+  gap: 1rem;
+}
+.arrow {
+  border: solid dimgrey;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+}
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
 /* Media Queries for Tablets */
 @media (min-width: 768px) {
   .site-wrapper {
@@ -150,5 +184,13 @@ footer {
   }
   .home-page{
     margin: 1.5rem;
+  }
+  .recipes-header {
+    font-size: 3rem;
+  }
+  .recipes-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
   }
 }

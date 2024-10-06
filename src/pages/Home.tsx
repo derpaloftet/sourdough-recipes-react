@@ -11,12 +11,14 @@ export default function Home() {
         <div className="section-text">
           <h2>What is Sourdough?</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum.
+            Sourdough is a type of bread made using a natural fermentation process that involves wild yeast and lactic acid bacteria.
+            Unlike commercial breads that rely on packaged yeast for rising, sourdough uses a "starter" –
+            a fermented mixture of flour and water that captures wild yeast from the environment.
+            The process of making sourdough involves longer fermentation times,
+            which gives the bread its distinct tangy flavor and chewy texture.
+            Sourdough has been a traditional method of bread-making for thousands of years, predating modern yeast-based baking.
+            It's prized for its complexity of flavor, artisanal quality, and the skill required to maintain a healthy starter and
+            achieve the perfect loaf.
           </p>
           <NavLink to="/recipes"
             className="home-link"
@@ -30,20 +32,14 @@ export default function Home() {
         <div className="section-text">
           <h2>Why is Sourdough good for you?</h2>
           <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-            explicabo.
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-            dolores eos qui
-            ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-            consectetur,
-            adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-            voluptatem.
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
-            ea commodi
-            consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
-            consequatur,
-            vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
+            Sourdough is not only delicious but also offers several health benefits.
+            The long fermentation process helps break down gluten, making the bread easier to digest for some people with
+            gluten sensitivity (though it’s not suitable for those with celiac disease).
+            The lactic acid bacteria in sourdough improve the availability of nutrients such as B vitamins, magnesium, and iron.
+            Additionally, the fermentation process produces probiotics, which support gut health.
+            Sourdough also has a lower glycemic index compared to many other types of bread, meaning it leads to
+            a slower rise in blood sugar. These factors make sourdough a nutritious choice for those seeking wholesome,
+            traditionally prepared bread.
           </p>
         </div>
       </section>
