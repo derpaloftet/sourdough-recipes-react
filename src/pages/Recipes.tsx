@@ -25,15 +25,19 @@ export default function Recipes() {
 
   const recipeElement = currentRecipes.map(item => {
     return (
-      <div className="recipe-card">
-        <img className="recipe-image" src={breadWhite}/>
+      <div
+        key={item.id}
+        className="recipe-card">
+        <NavLink to={item.id}>
+          <img className="recipe-image" src={breadWhite}/>
+        </NavLink>
         <div className="recipe-title">{item.title}</div>
         <div className="recipe-keywords">
           <div className="recipe-keyword">{item.difficulty}</div>
           <div className="recipe-keyword">{item.duration} minutes</div>
         </div>
         <button className="btn-like">❤</button>
-        <NavLink to="/login"
+        <NavLink to={item.id}
                  className="basic-btn"
         >
           Go to Recipe Details

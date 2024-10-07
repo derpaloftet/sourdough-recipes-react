@@ -3,6 +3,7 @@ import './App.css'
 import Layout from "./components/Layout"
 import Home from "./pages/Home"
 import Recipes from "./pages/Recipes"
+import RecipeDetail from "./pages/RecipeDetail"
 import AddRecipe from "./pages/AddRecipe"
 import Login from "./pages/Login"
 import NotFound from "./pages/NotFound"
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="recipes" element={<Recipes />}/>
+          <Route path="recipes/:id" element={<RecipeDetail />}/>
           <Route path="add-recipes"element={<AddRecipe />}/>
           <Route path="login" element={<Login />}/>
           <Route path="*" element={<NotFound />}/>

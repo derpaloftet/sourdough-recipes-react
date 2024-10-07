@@ -165,6 +165,21 @@ html, body {
   font-size: .9rem;
 }
 
+/* RecipeDetail */
+.recipe-detail {
+  display: flex;
+  flex-direction: column;
+}
+.detail-image {
+  width: 50%;
+  margin: .7rem auto;
+}
+.detail-text {
+  border: 2px solid #374151;
+  margin: .7rem auto;
+
+}
+
 /* Footer */
 footer {
   background-color: #374151;
@@ -188,6 +203,10 @@ footer {
   }
   .recipe-title {
     font-size: 1.2rem;
+  }
+  .recipe-detail {
+    display: flex;
+    flex-direction: row;
   }
 }
 
