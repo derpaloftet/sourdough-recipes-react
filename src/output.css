@@ -558,10 +558,6 @@ video {
   border-width: 1px;
 }
 
-.underline {
-  text-decoration-line: underline;
-}
-
 html, body {
   margin: 0 auto;
   padding: 0;
@@ -642,9 +638,12 @@ html, body {
 }
 
 .login {
+  /*@apply rounded bg-gray-700 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none;
+  @apply focus:ring active:bg-indigo-500;*/
+  display: inline-block;
   border-radius: 0.25rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 0.75rem;
