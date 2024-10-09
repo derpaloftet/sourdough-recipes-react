@@ -554,6 +554,14 @@ video {
   display: none;
 }
 
+.border {
+  border-width: 1px;
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
 html, body {
   margin: 0 auto;
   padding: 0;
@@ -619,7 +627,7 @@ html, body {
   line-height: 1rem;
   font-weight: 500;
   --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
+  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .nav-item:hover {
@@ -843,8 +851,31 @@ html, body {
 }
 
 .detail-text {
-  border: 2px solid #374151;
   margin: .7rem auto;
+  padding: 15px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.detail-text h2{
+  font-family: "Kay Pho Du", serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: #374151;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.detail{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d87512;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */

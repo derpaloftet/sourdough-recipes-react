@@ -51,9 +51,8 @@ html, body {
   align-items: center;
 }
 .nav-item {
-  @apply block rounded-lg px-5 py-3 text-xs font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700;
+  @apply block rounded-lg px-5 py-3 text-xs font-medium text-gray-800 hover:bg-gray-100 hover:text-gray-700;
   background-color: lightgrey;
-
 }
 .login {
   @apply rounded bg-gray-700 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none;
@@ -175,9 +174,29 @@ html, body {
   margin: .7rem auto;
 }
 .detail-text {
-  border: 2px solid #374151;
   margin: .7rem auto;
-
+  padding: 15px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+.detail-text h2{
+  font-family: "Kay Pho Du", serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: #374151;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+.detail{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d87512;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */

@@ -10,21 +10,27 @@ export default function RecipeDetail() {
     if(item.id === currentId){
       return (
         <div className="recipe-detail">
-          <img className="detail-image" src={breadWhite}/>
-          <div className="detail-text">
-              <div className="recipe-title">{item.title}</div>
-              <div>Difficulty: {item.difficulty}</div>
-              <div>Duration: {item.duration} minutes</div>
-              <div>
-                Ingredients: {item.ingredients.map(ingredient => {
-                return (
-                  <ul>
-                    <li>{ingredient.name} - {ingredient.quantity}</li>
-                  </ul>
-                )
-              })}
+            <img className="detail-image" src={breadWhite} alt="recipe image"/>
+            <div className="detail-text">
+              <h2>{item.title}</h2>
+              <div className="">
+                <span className="detail">Difficulty: </span>{item.difficulty}
               </div>
-              <div>Instructions: {item.instructions}</div>
+            <div>
+              <span className="detail">Duration: </span>{item.duration} minutes
+            </div>
+            <div>
+              <div className="detail">Ingredients:</div>
+              {item.ingredients.map(ingredient => {
+              return (
+                <ul>
+                  <li>{ingredient.name} - {ingredient.quantity}</li>
+                </ul>
+              )
+            })}
+            </div>
+            <div>
+              <div className="detail">Instructions: </div>{item.instructions}</div>
             </div>
         </div>
       )
