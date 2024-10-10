@@ -68,9 +68,8 @@ html, body {
 }
 .basic-btn {
   margin-top: 1rem;
-  /*@apply inline-block rounded-full bg-gray-700 px-10 py-3 text-sm font-medium text-white transition hover:bg-gray-500;
-  @apply focus:ring active:bg-indigo-500;*/
-  @apply inline-block rounded bg-indigo-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-indigo-500;
+  @apply inline-block rounded-full bg-gray-700 px-10 py-3 text-sm font-medium text-white transition hover:bg-gray-500;
+  @apply focus:ring active:bg-indigo-500;
 }
 .section-text h2 {
   font-size: 1.5rem;

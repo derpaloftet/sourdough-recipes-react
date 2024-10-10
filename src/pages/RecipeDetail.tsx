@@ -1,15 +1,23 @@
 import recipesData from "../assets/recipes.json"
 import { useLocation, useParams } from "react-router-dom"
-import breadWhite from "../assets/bread-recipe4.jpg";
+import breadWhite from "../assets/bread-recipe4.jpg"
+import { nanoid } from 'nanoid'
 
 export default function RecipeDetail() {
   const params = useParams()
   const currentId = params.id
 
+/*
+  const location = useLocation()
+  console.log(location)
+*/
+
   const currentRecipe = recipesData.map(item => {
     if(item.id === currentId){
       return (
-        <div className="recipe-detail">
+        <div
+          key={item.id}
+          className="recipe-detail">
             <img className="detail-image" src={breadWhite} alt="recipe image"/>
             <div className="detail-text">
               <h2>{item.title}</h2>
@@ -23,7 +31,7 @@ export default function RecipeDetail() {
               <div className="detail">Ingredients:</div>
               {item.ingredients.map(ingredient => {
               return (
-                <ul>
+                <ul key={nanoid()}>
                   <li>{ingredient.name} - {ingredient.quantity}</li>
                 </ul>
               )
