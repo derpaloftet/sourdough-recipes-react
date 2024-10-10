@@ -11,38 +11,49 @@ export default function Recipes() {
 
   const [searchParams, setSearchParams] = useSearchParams()
   const difficultyFilter = searchParams.get("difficulty")
-  const durationFilter = searchParams.get("duration")
+  const durationFilter = Number(searchParams.get("duration"))
   const typeFilter = searchParams.get("type")
 
   /* Filtering */
 
-  let filteredRecipes
+  function handelChangeFilter(key, value) {
+    setSearchParams(prevParams=> {
+      if(key === "clear") {
+        prevParams.delete("difficulty")
+        prevParams.delete("duration")
+        prevParams.delete("type")
+      } else {
+        prevParams.set(key, value)
+      }
+      return prevParams
+    })
+  }
+
+  let filteredRecipes = recipes
   if(difficultyFilter){
-    filteredRecipes = recipes.filter(item => item.difficulty === difficultyFilter)
+    filteredRecipes = filteredRecipes.filter(item => item.difficulty === difficultyFilter)
   }
-  if(durationFilter){
-    filteredRecipes = recipes.filter(item => item.duration <= Number(durationFilter))
-  }
-  if(typeFilter){
-    let hasSugar = false
-    if (typeFilter === "sugar") {
-      hasSugar = true
+  if (durationFilter){
+    if(durationFilter <= 240){
+      filteredRecipes = filteredRecipes.filter(item => item.duration <= Number(durationFilter))
     }
-    if (hasSugar) {
-      filteredRecipes = recipes.filter(item => {
+    if(durationFilter > 240){
+      filteredRecipes = filteredRecipes.filter(item => item.duration > Number(durationFilter))
+    }
+  }
+
+  if (typeFilter){
+    if(typeFilter === "sweet"){
+      filteredRecipes = filteredRecipes.filter(item => {
         return item.ingredients.some(ingredient => ingredient.name === "sugar")
       })
-    } else {
-      filteredRecipes = recipes.filter(item => {
+    }
+    if (typeFilter === "savoury") {
+      filteredRecipes = filteredRecipes.filter(item => {
         return item.ingredients.every(ingredient => ingredient.name !== "sugar")
       })
-    }
   }
-
-
-  /*const filteredRecipes = difficultyFilter ?
-    recipes.filter(recipe => recipe.difficulty === difficultyFilter) :
-    recipes*/
+  }
 
   /* Pagination */
 
@@ -61,17 +72,6 @@ export default function Recipes() {
     if(currentPage < totalPages) {
       setCurrentPage(currentPage + 1)
     }
-  }
-
-  function handelChangeFilter(key, value) {
-    setSearchParams(prevParams=> {
-      if(value === null) {
-        prevParams.delete(key)
-      } else {
-        prevParams.set(key, value)
-      }
-      return prevParams
-    })
   }
 
   const recipeElement = currentRecipes.map(item => {
@@ -97,6 +97,7 @@ export default function Recipes() {
     )
     }
   )
+
   return (
     <>
       <h2 className="recipes-header">Recipes</h2>
@@ -107,15 +108,15 @@ export default function Recipes() {
         <button onClick={() => handelChangeFilter("difficulty", "hard")}>hard</button>
 
         <h3>Duration</h3>
-        <button>1,5 hours and less</button>
-        <button>2 hours and less</button>
-        <button>more than 2 hours</button>
+        <button onClick={() => handelChangeFilter("duration", 90)}>1,5 hours and less</button>
+        <button onClick={() => handelChangeFilter("duration", 240)}>4 hours and less</button>
+        <button onClick={() => handelChangeFilter("duration", 241)}>more than 4 hours</button>
 
         <h3>Type</h3>
-        <button>sweet</button>
-        <button>savoury</button>
+        <button onClick={() => handelChangeFilter("type", "sweet")}>sweet</button>
+        <button onClick={() => handelChangeFilter("type", "savoury")}>savoury</button>
 
-        <button onClick={() => handelChangeFilter("difficulty", null)}>Clear filters</button>
+        <button onClick={() => handelChangeFilter("clear")}>Clear filters</button>
       </div>
       <div className="recipes-layout">
         {recipeElement}
