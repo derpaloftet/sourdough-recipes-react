@@ -19,7 +19,11 @@ export default function Recipes() {
 
   function handelChangeFilter(key, value) {
     setSearchParams(prevParams=> {
-      if (key === "clear") {
+      const currentValue = prevParams.get(key)
+      if (currentValue === value) {
+        prevParams.delete(key);
+      }
+      else if (key === "clear") {
         prevParams.delete("difficulty")
         prevParams.delete("duration")
         prevParams.delete("type")
