@@ -1,6 +1,7 @@
 import recipesData from "../assets/recipes.json"
 import {Recipe} from "../assets/types"
 import breadWhite from "../assets/bread-recipe4.jpg"
+import sadBread from "../assets/sad_bread.png"
 import {NavLink, useSearchParams} from "react-router-dom"
 import {useState} from "react"
 
@@ -18,7 +19,7 @@ export default function Recipes() {
 
   function handelChangeFilter(key, value) {
     setSearchParams(prevParams=> {
-      if(key === "clear") {
+      if (key === "clear") {
         prevParams.delete("difficulty")
         prevParams.delete("duration")
         prevParams.delete("type")
@@ -74,13 +75,13 @@ export default function Recipes() {
     }
   }
 
-  const recipeElement = currentRecipes.map(item => {
+  const recipeElement = <div className="recipes-layout">{currentRecipes.map(item => {
     return (
       <div
         key={item.id}
         className="recipe-card">
         <NavLink to={item.id}>
-          <img className="recipe-image" src={breadWhite}/>
+          <img className="recipe-image" src={breadWhite} alt="image of the recipe"/>
         </NavLink>
         <div className="recipe-title">{item.title}</div>
         <div className="recipe-keywords">
@@ -96,36 +97,50 @@ export default function Recipes() {
       </div>
     )
     }
-  )
+  )}
+  </div>
+  const noRecipeElement = <div className="no-recipes-layout">
+    <img src={sadBread} alt="The picture of a sad bread" />
+    <p>Sorry, no recipe matching your criteria was found</p>
+  </div>
 
   return (
-    <>
+    <div className="recipes">
       <h2 className="recipes-header">Recipes</h2>
-      <div className="recipes-filter">
-        <h3>Difficulty</h3>
-        <button onClick={() => handelChangeFilter("difficulty", "easy")}>easy</button>
-        <button onClick={() => handelChangeFilter("difficulty", "medium")}>medium</button>
-        <button onClick={() => handelChangeFilter("difficulty", "hard")}>hard</button>
+          <div className="recipes-filter">
+            <div className="filter-difficulty">
+              <button className={difficultyFilter === "easy" ? "clicked" : ""}
+                      onClick={() => handelChangeFilter("difficulty", "easy")}>easy</button>
+              <button className={difficultyFilter === "medium" ? "clicked" : ""}
+                      onClick={() => handelChangeFilter("difficulty", "medium")}>medium</button>
+              <button className={difficultyFilter === "hard" ? "clicked" : ""}
+                      onClick={() => handelChangeFilter("difficulty", "hard")}>hard</button>
+            </div>
+            <div className="filter-duration">
+              <button className={durationFilter <= 90 && durationFilter ? "clicked" : ""}
+                      onClick={() => handelChangeFilter("duration", 90)}>1 hour and less</button>
+              <button className={durationFilter > 90 && durationFilter <= 240 ? "clicked" : ""}
+                      onClick={() => handelChangeFilter("duration", 240)}>4 hours and less</button>
+              <button className={durationFilter > 240 ? "clicked" : ""}
+                      onClick={() => handelChangeFilter("duration", 241)}>more than 4 hours</button>
+            </div>
+            <div className="filter-type">
+              <button className={typeFilter === "sweet" ? "clicked" : ""}
+                      onClick={() => handelChangeFilter("type", "sweet")}>sweet</button>
+              <button className={typeFilter === "savoury" ? "clicked" : ""}
+                      onClick={() => handelChangeFilter("type", "savoury")}>savoury</button>
+            </div>
+          </div>
+      <button className="filter-clear"
+              onClick={() => handelChangeFilter("clear")}>Clear filters</button>
 
-        <h3>Duration</h3>
-        <button onClick={() => handelChangeFilter("duration", 90)}>1,5 hours and less</button>
-        <button onClick={() => handelChangeFilter("duration", 240)}>4 hours and less</button>
-        <button onClick={() => handelChangeFilter("duration", 241)}>more than 4 hours</button>
+      {currentRecipes.length ? recipeElement: noRecipeElement}
 
-        <h3>Type</h3>
-        <button onClick={() => handelChangeFilter("type", "sweet")}>sweet</button>
-        <button onClick={() => handelChangeFilter("type", "savoury")}>savoury</button>
-
-        <button onClick={() => handelChangeFilter("clear")}>Clear filters</button>
-      </div>
-      <div className="recipes-layout">
-        {recipeElement}
-      </div>
       <div className="recipes-pages">
         <button onClick={handlePrevPage} disabled={currentPage === 1}><i className="arrow left"></i></button>
-      {currentPage}
-      <button onClick={handleNextPage} disabled={currentPage === totalPages}><i className="arrow right"></i></button>
+        {currentPage}
+        <button onClick={handleNextPage} disabled={currentPage === totalPages || !currentRecipes.length}><i className="arrow right"></i></button>
       </div>
-    </>
+    </div>
   )
 }

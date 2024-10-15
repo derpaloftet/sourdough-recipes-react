@@ -18,6 +18,7 @@ html, body {
 }
 
 /* Navbar */
+
 .navbar {
   display: flex;
   flex-direction: column;
@@ -60,6 +61,7 @@ html, body {
 }
 
 /* Home */
+
 .home-page {
   display: flex;
   flex-direction: column;
@@ -97,6 +99,13 @@ html, body {
 }
 
 /* Recipes Layout */
+
+.recipes {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
 .recipes-header {
   font-family: "Kay Pho Du", serif;
   font-weight: 700;
@@ -109,28 +118,77 @@ html, body {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-top: .5rem;
+  flex-grow: 1;
 }
-.recipes-pages {
+.no-recipes-layout {
   display: flex;
-  margin: 1rem auto;
+  flex-direction: column;
+  margin-top: 5rem;
   gap: 1rem;
+  flex-grow: 1;
 }
-.arrow {
-  border: solid dimgrey;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 4px;
+.no-recipes-layout img {
+  width: 20rem;
+  margin: 0 auto;
 }
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
+.no-recipes-layout p {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #374151;
 }
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
+
+/* Recipe Filter */
+
+.recipes-filter {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: .5rem .5rem;
+}
+.recipes-filter button {
+  border-radius: 10px;
+  border: 2px solid lightslategrey;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+  padding: .1rem;
+  font-size: .7rem;
+  background-color: lightgrey;
+  width: 100%;
+}
+.recipes-filter button.clicked {
+  background-color: #F3F4F6;
+  font-weight: bold;
+  border: 2px solid #DCDCDC;
+}
+.filter-difficulty {
+  display: flex;
+  gap: .3rem;
+}
+.filter-duration {
+  display: flex;
+  gap: .3rem;
+}
+.filter-type {
+  display: flex;
+  gap: .3rem;
+}
+.filter-clear {
+  font-weight: 400;
+  font-size: 1rem;
+  text-shadow: 1px 1px 5px rgb(124, 120, 115);
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+}
+.recipes-filter button:hover {
+  background-color: #F3F4F6;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+.filter-clear:hover {
+  color: dimgrey;
+  text-shadow: 1px 1px 5px rgb(124, 120, 115);
 }
 
 /* Recipe Cards */
+
 .recipe-card {
   position: relative;
 }
@@ -162,6 +220,28 @@ html, body {
   padding: .2rem;
   width: 40%;
   font-size: .9rem;
+}
+
+/* Recipe Pages */
+
+.recipes-pages {
+  display: flex;
+  margin: 1rem auto;
+  gap: 1rem;
+}
+.arrow {
+  border: solid dimgrey;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+}
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 
 /* RecipeDetail */
@@ -200,6 +280,7 @@ html, body {
 }
 
 /* Footer */
+
 footer {
   background-color: #374151;
   height: 50px;
@@ -207,10 +288,11 @@ footer {
   align-content: center;
   font-size: .8rem;
 }
+
 /* Media Queries for Tablets */
+
 @media (min-width: 768px) {
   .site-wrapper {
-    /*background-color: pink;*/
     max-width: 720px;
     margin: 0 auto;
   }
@@ -227,12 +309,18 @@ footer {
     display: flex;
     flex-direction: row;
   }
+  .recipes-filter {
+    gap: 3rem;
+  }
+  .no-recipes-layout img{
+    width: 30rem;
+  }
 }
 
 /* Media Queries for Small Desktops/Laptops */
+
 @media (min-width: 1024px) {
   .site-wrapper {
-/*    background-color: lightskyblue; */
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -268,6 +356,12 @@ footer {
     gap: 1rem;
   }
   .recipe-title {
+    font-size: 1.3rem;
+  }
+  .no-recipes-layout img{
+    width: 35rem;
+  }
+  .no-recipes-layout p {
     font-size: 1.3rem;
   }
 }
