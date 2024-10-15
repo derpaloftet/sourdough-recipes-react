@@ -278,6 +278,10 @@ html, body {
   color: #d87512;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
+.recipe-back {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
 
 /* Footer */
 
@@ -287,6 +291,13 @@ footer {
   color: lightgrey;
   align-content: center;
   font-size: .8rem;
+}
+
+/* Not Found Page */
+
+.not-found-page h2{
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 /* Media Queries for Tablets */
