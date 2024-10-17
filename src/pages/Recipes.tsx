@@ -19,8 +19,9 @@ export default function Recipes() {
 
   function handelChangeFilter(key, value) {
     setSearchParams(prevParams=> {
-      const currentValue = prevParams.get(key)
-      if (currentValue === value) {
+      const currentValue= prevParams.get(key)
+      /* Is it ok == ?*/
+      if (currentValue == value) {
         prevParams.delete(key);
       }
       else if (key === "clear") {
@@ -123,9 +124,9 @@ export default function Recipes() {
             <div className="filter-duration">
               <button className={durationFilter <= 90 && durationFilter ? "clicked" : ""}
                       onClick={() => handelChangeFilter("duration", 90)}>1 hour and less</button>
-              <button className={durationFilter > 90 && durationFilter <= 240 ? "clicked" : ""}
+              <button className={durationFilter === 240 ? "clicked" : ""}
                       onClick={() => handelChangeFilter("duration", 240)}>4 hours and less</button>
-              <button className={durationFilter > 240 ? "clicked" : ""}
+              <button className={durationFilter === 241 ? "clicked" : ""}
                       onClick={() => handelChangeFilter("duration", 241)}>more than 4 hours</button>
             </div>
             <div className="filter-type">
