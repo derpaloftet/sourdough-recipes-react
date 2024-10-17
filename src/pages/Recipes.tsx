@@ -21,14 +21,15 @@ export default function Recipes() {
     setSearchParams(prevParams=> {
       const currentValue= prevParams.get(key)
       /* Is it ok == ?*/
-      if (currentValue == value) {
-        prevParams.delete(key);
-      }
-      else if (key === "clear") {
+
+       if (key === "clear") {
         prevParams.delete("difficulty")
         prevParams.delete("duration")
         prevParams.delete("type")
-      } else {
+      } else if (currentValue == value) {
+        prevParams.delete(key);
+      }
+       else {
         prevParams.set(key, value)
       }
       return prevParams
