@@ -13,7 +13,7 @@ export default function AddRecipe() {
     image: string,
     instructions: string,
     difficulty: string,
-    duration: number
+    duration: number | null
   }
 
   const [currentIngredient, setCurrentIngredient] = useState<Ingredient>(
@@ -26,7 +26,7 @@ export default function AddRecipe() {
     image: "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9.jpg",
     instructions: "",
     difficulty: "",
-    duration: 0
+    duration: null
   })
   function handleOnChange(e){
     const {name, value} = e.target
@@ -80,6 +80,7 @@ export default function AddRecipe() {
             <input
               type="radio"
               name="difficulty"
+              id="easy"
               value="easy"
               checked={formData.difficulty === "easy"}
               onChange={handleOnChange}
@@ -88,6 +89,7 @@ export default function AddRecipe() {
             <input
               type="radio"
               name="difficulty"
+              id="medium"
               value="medium"
               checked={formData.difficulty === "medium"}
               onChange={handleOnChange}
@@ -96,11 +98,12 @@ export default function AddRecipe() {
             <input
               type="radio"
               name="difficulty"
+              id="hard"
               value="hard"
               checked={formData.difficulty === "hard"}
               onChange={handleOnChange}
             />
-            <label htmlFor="easy">Hard</label>
+            <label htmlFor="hard">Hard</label>
           </div>
         </div>
         <div className="form-group">
@@ -109,6 +112,7 @@ export default function AddRecipe() {
             type="text"
             placeholder="Ex: 300"
             name="duration"
+            id="duration"
             value={formData.duration}
             onChange={handleOnChange}
           />
@@ -120,6 +124,7 @@ export default function AddRecipe() {
             <textarea
               placeholder="Ex: wheat flour"
               name="name"
+              id="name"
               value={currentIngredient.name}
               onChange={handleOnChange}
             />
@@ -127,15 +132,15 @@ export default function AddRecipe() {
             <textarea
               placeholder="Ex: 450 grams"
               name="quantity"
+              id="quantity"
               value={currentIngredient.quantity}
               onChange={handleOnChange}
             />
             <button className="add-ingredients-btn" onClick={addIngredients}>Add</button>
-            <div className="ingredients-added">Added Ingredients:</div>
+            {formData.ingredients.length > 0 && <div className="ingredients-added">Added Ingredients:</div>}
             <ul>
-              {formData.ingredients.map(item => {
-                console.log(item)
-              return <li>{item.name} - {item.quantity}</li>
+              {formData.ingredients.map((item, index) => {
+              return <li key={index}>{item.name} - {item.quantity}</li>
             })}
             </ul>
           </div>
@@ -145,6 +150,7 @@ export default function AddRecipe() {
             <textarea
               placeholder="Put your instructions step by step"
               name="instructions"
+              id="instructions"
               value={formData.instructions}
               onChange={handleOnChange}
             />
