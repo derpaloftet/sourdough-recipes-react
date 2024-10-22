@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 
 export default function Home() {
   return (
-    <main className="home-page">
+    <div className="home-page">
       <section className="home-intro">
         <img className="home-img" src={breadTowel} alt="The image of bread"/>
         <div className="section-text">
@@ -62,6 +62,6 @@ export default function Home() {
           </NavLink>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

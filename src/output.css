@@ -778,6 +778,7 @@ html, body {
   font-size: 2rem;
   text-shadow: 1px 1px 5px rgb(124, 120, 115);
   margin-top: .5rem;
+  color: #404951;
 }
 
 .recipes-layout {
@@ -972,6 +973,115 @@ html, body {
 .recipe-back {
   font-weight: 500;
   font-size: 1.1rem;
+}
+
+/* Add Recipe */
+
+.add-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 1rem;
+  gap: 1rem;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.add-recipe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.form-group label, .ingredients-label, .ingredients-added {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #31353c;
+}
+
+input, textarea {
+  padding: 0.5rem;
+}
+
+.difficulty-group label, .ingredients label  {
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.difficulty-group {
+  display: flex;
+  gap: .5rem;
+}
+
+textarea {
+  height: 200px;
+  resize: none;
+}
+
+.ingredients textarea {
+  height: 50px;
+}
+
+.ingredients {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.add-ingredients-btn {
+  margin-top: .5rem;
+  display: inline-block;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.add-ingredients-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+
+.add-ingredients-btn:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.add-ingredients-btn:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+}
+
+.add-ingredients-btn {
+  width: 30%;
+}
+
+.add-recipe-btn {
+  margin-bottom: 1.3rem;
 }
 
 /* Footer */
