@@ -1,9 +1,9 @@
-enum Difficulty {
+export enum Difficulty {
   Easy = "easy",
   Medium = "medium",
   Hard = "hard"
 }
-interface Ingredient {
+export interface Ingredient {
   name: string,
   quantity: string
 }
@@ -13,6 +13,6 @@ export interface Recipe {
   ingredients: Ingredient[];
   image: string;
   instructions: string;
-  difficulty: Difficulty;
-  duration: number;
+  difficulty: Difficulty | null;
+  duration: number | null;
 }

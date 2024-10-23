@@ -17,20 +17,19 @@ export default function Recipes() {
 
   /* Filtering */
 
-  function handelChangeFilter(key, value) {
+  function handleChangeFilter(key: "difficulty" | "duration" | "type" | "clear", value?: string | number) {
     setSearchParams(prevParams=> {
       const currentValue= prevParams.get(key)
-      /* Is it ok == ?*/
 
        if (key === "clear") {
         prevParams.delete("difficulty")
         prevParams.delete("duration")
         prevParams.delete("type")
-      } else if (currentValue == value) {
+      } else if (currentValue === String(value)) {
         prevParams.delete(key);
       }
        else {
-        prevParams.set(key, value)
+        prevParams.set(key, String(value))
       }
       return prevParams
     })
@@ -42,10 +41,10 @@ export default function Recipes() {
   }
   if (durationFilter){
     if(durationFilter <= 240){
-      filteredRecipes = filteredRecipes.filter(item => item.duration <= Number(durationFilter))
+      filteredRecipes = filteredRecipes.filter(item => item.duration <= durationFilter)
     }
     if(durationFilter > 240){
-      filteredRecipes = filteredRecipes.filter(item => item.duration > Number(durationFilter))
+      filteredRecipes = filteredRecipes.filter(item => item.duration > durationFilter)
     }
   }
 
@@ -116,29 +115,29 @@ export default function Recipes() {
           <div className="recipes-filter">
             <div className="filter-difficulty">
               <button className={difficultyFilter === "easy" ? "clicked" : ""}
-                      onClick={() => handelChangeFilter("difficulty", "easy")}>easy</button>
+                      onClick={() => handleChangeFilter("difficulty", "easy")}>easy</button>
               <button className={difficultyFilter === "medium" ? "clicked" : ""}
-                      onClick={() => handelChangeFilter("difficulty", "medium")}>medium</button>
+                      onClick={() => handleChangeFilter("difficulty", "medium")}>medium</button>
               <button className={difficultyFilter === "hard" ? "clicked" : ""}
-                      onClick={() => handelChangeFilter("difficulty", "hard")}>hard</button>
+                      onClick={() => handleChangeFilter("difficulty", "hard")}>hard</button>
             </div>
             <div className="filter-duration">
               <button className={durationFilter <= 90 && durationFilter ? "clicked" : ""}
-                      onClick={() => handelChangeFilter("duration", 90)}>1 hour and less</button>
+                      onClick={() => handleChangeFilter("duration", 90)}>1 hour and less</button>
               <button className={durationFilter === 240 ? "clicked" : ""}
-                      onClick={() => handelChangeFilter("duration", 240)}>4 hours and less</button>
+                      onClick={() => handleChangeFilter("duration", 240)}>4 hours and less</button>
               <button className={durationFilter === 241 ? "clicked" : ""}
-                      onClick={() => handelChangeFilter("duration", 241)}>more than 4 hours</button>
+                      onClick={() => handleChangeFilter("duration", 241)}>more than 4 hours</button>
             </div>
             <div className="filter-type">
               <button className={typeFilter === "sweet" ? "clicked" : ""}
-                      onClick={() => handelChangeFilter("type", "sweet")}>sweet</button>
+                      onClick={() => handleChangeFilter("type", "sweet")}>sweet</button>
               <button className={typeFilter === "savoury" ? "clicked" : ""}
-                      onClick={() => handelChangeFilter("type", "savoury")}>savoury</button>
+                      onClick={() => handleChangeFilter("type", "savoury")}>savoury</button>
             </div>
           </div>
       <button className="filter-clear"
-              onClick={() => handelChangeFilter("clear")}>Clear filters</button>
+              onClick={() => handleChangeFilter("clear")}>Clear filters</button>
 
       {currentRecipes.length ? recipeElement: noRecipeElement}
 

@@ -1,53 +1,41 @@
-import {useState} from "react";
+import React, {useState} from "react"
+import {Recipe, Ingredient, Difficulty} from "../assets/types"
 
 export default function AddRecipe() {
 
-  interface Ingredient {
-    name: string;
-    quantity: string;
-  }
-  interface FormData {
-    id: string,
-    title: string,
-    ingredients: Ingredient[],
-    image: string,
-    instructions: string,
-    difficulty: string,
-    duration: number | null
+  const initialFormState: Recipe = {
+      id: "1",
+      title: "",
+      ingredients: [],
+      image: "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9.jpg",
+      instructions: "",
+      difficulty: null,
+      duration: null
   }
 
   const [currentIngredient, setCurrentIngredient] = useState<Ingredient>(
     {name: "", quantity: ""}
   )
-  const [formData, setFormData] = useState<FormData>({
-    id: "1",
-    title: "",
-    ingredients: [],
-    image: "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9.jpg",
-    instructions: "",
-    difficulty: "",
-    duration: null
-  })
-  function handleOnChange(e){
+  const [formData, setFormData] = useState<Recipe>(initialFormState)
+  function handleOnChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const {name, value} = e.target
-    if(name === "name" || name === "quantity"){
-      setCurrentIngredient(prevState => {
-        return {
-          ...prevState,
-          [name]: value,
+     if(name === "name" || name === "quantity"){
+          setCurrentIngredient(prevState => {
+            return {
+              ...prevState,
+              [name]: value,
+            }
+          })
+        } else {
+          setFormData(prevState => {
+            return {
+              ...prevState,
+              [name]: value,
+            }
+          })
         }
-      })
-    } else {
-      setFormData(prevState => {
-        return {
-          ...prevState,
-          [name]: value,
-        }
-      })
-    }
   }
-
-  function addIngredients(e) {
+  function addIngredients(e: React.FormEvent) {
     e.preventDefault()
     if(currentIngredient.name && currentIngredient.quantity) {
       setFormData(prevState => {
@@ -58,6 +46,11 @@ export default function AddRecipe() {
       })
       setCurrentIngredient({name: "", quantity: ""})
     }
+  }
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setFormData(initialFormState)
+    console.log(formData)
   }
   return (
     <div className="add-recipe">
@@ -81,8 +74,8 @@ export default function AddRecipe() {
               type="radio"
               name="difficulty"
               id="easy"
-              value="easy"
-              checked={formData.difficulty === "easy"}
+              value={Difficulty.Easy}
+              checked={formData.difficulty === Difficulty.Easy}
               onChange={handleOnChange}
             />
             <label htmlFor="easy">Easy</label>
@@ -90,8 +83,8 @@ export default function AddRecipe() {
               type="radio"
               name="difficulty"
               id="medium"
-              value="medium"
-              checked={formData.difficulty === "medium"}
+              value={Difficulty.Medium}
+              checked={formData.difficulty === Difficulty.Medium}
               onChange={handleOnChange}
             />
             <label htmlFor="medium">Medium</label>
@@ -99,8 +92,8 @@ export default function AddRecipe() {
               type="radio"
               name="difficulty"
               id="hard"
-              value="hard"
-              checked={formData.difficulty === "hard"}
+              value={Difficulty.Hard}
+              checked={formData.difficulty === Difficulty.Hard}
               onChange={handleOnChange}
             />
             <label htmlFor="hard">Hard</label>
@@ -113,7 +106,7 @@ export default function AddRecipe() {
             placeholder="Ex: 300"
             name="duration"
             id="duration"
-            value={formData.duration}
+            value={formData.duration ?? ""}
             onChange={handleOnChange}
           />
         </div>
@@ -156,7 +149,7 @@ export default function AddRecipe() {
             />
           </div>
       </form>
-      <button className="basic-btn add-recipe-btn">Add Recipe</button>
+      <button className="basic-btn add-recipe-btn" onClick={handleSubmit}>Add Recipe</button>
     </div>
   )
 }

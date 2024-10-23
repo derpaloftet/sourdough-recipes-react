@@ -1194,4 +1194,13 @@ footer {
   .no-recipes-layout p {
     font-size: 1.3rem;
   }
+
+  .add-recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 1rem;
+    gap: 1rem;
+  }
 }
