@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import './App.css'
 import Layout from "./components/Layout"
 import Home from "./pages/Home"
@@ -13,13 +13,13 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="recipes" element={<Recipes />}/>
-          <Route path="recipes/:id" element={<RecipeDetail />}/>
-          <Route path="add-recipes"element={<AddRecipe />}/>
-          <Route path="login" element={<Login />}/>
-          <Route path="*" element={<NotFound />}/>
+        <Route path="/" element={<Layout/>}>
+          <Route index element={<Home/>}/>
+          <Route path="recipes" element={<Recipes/>}/>
+          <Route path="recipes/:id" element={<RecipeDetail/>}/>
+          <Route path="add-recipes" element={<AddRecipe/>}/>
+          <Route path="login" element={<Login/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,43 +1,45 @@
-import React, {useState} from "react"
-import {Recipe, Ingredient, Difficulty} from "../assets/types"
+import React, { useState } from "react"
+import { Recipe, Ingredient, Difficulty } from "../assets/types"
 
 export default function AddRecipe() {
 
   const initialFormState: Recipe = {
-      id: "1",
-      title: "",
-      ingredients: [],
-      image: "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9.jpg",
-      instructions: "",
-      difficulty: null,
-      duration: null
+    id: "1",
+    title: "",
+    ingredients: [],
+    image: "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9.jpg",
+    instructions: "",
+    difficulty: null,
+    duration: null
   }
 
   const [currentIngredient, setCurrentIngredient] = useState<Ingredient>(
     {name: "", quantity: ""}
   )
   const [formData, setFormData] = useState<Recipe>(initialFormState)
+
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const {name, value} = e.target
-     if(name === "name" || name === "quantity"){
-          setCurrentIngredient(prevState => {
-            return {
-              ...prevState,
-              [name]: value,
-            }
-          })
-        } else {
-          setFormData(prevState => {
-            return {
-              ...prevState,
-              [name]: value,
-            }
-          })
+    if (name === "name" || name === "quantity") {
+      setCurrentIngredient(prevState => {
+        return {
+          ...prevState,
+          [name]: value,
         }
+      })
+    } else {
+      setFormData(prevState => {
+        return {
+          ...prevState,
+          [name]: value,
+        }
+      })
+    }
   }
+
   function addIngredients(e: React.FormEvent) {
     e.preventDefault()
-    if(currentIngredient.name && currentIngredient.quantity) {
+    if (currentIngredient.name && currentIngredient.quantity) {
       setFormData(prevState => {
         return {
           ...prevState,
@@ -47,11 +49,13 @@ export default function AddRecipe() {
       setCurrentIngredient({name: "", quantity: ""})
     }
   }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setFormData(initialFormState)
     console.log(formData)
   }
+
   return (
     <div className="add-recipe">
       <h1 className="recipes-header">Add your Recipe</h1>
@@ -133,21 +137,21 @@ export default function AddRecipe() {
             {formData.ingredients.length > 0 && <div className="ingredients-added">Added Ingredients:</div>}
             <ul>
               {formData.ingredients.map((item, index) => {
-              return <li key={index}>{item.name} - {item.quantity}</li>
-            })}
+                return <li key={index}>{item.name} - {item.quantity}</li>
+              })}
             </ul>
           </div>
         </div>
-          <div className="form-group">
-            <label htmlFor="instructions">Instructions:</label>
-            <textarea
-              placeholder="Put your instructions step by step"
-              name="instructions"
-              id="instructions"
-              value={formData.instructions}
-              onChange={handleOnChange}
-            />
-          </div>
+        <div className="form-group">
+          <label htmlFor="instructions">Instructions:</label>
+          <textarea
+            placeholder="Put your instructions step by step"
+            name="instructions"
+            id="instructions"
+            value={formData.instructions}
+            onChange={handleOnChange}
+          />
+        </div>
       </form>
       <button className="basic-btn add-recipe-btn" onClick={handleSubmit}>Add Recipe</button>
     </div>
