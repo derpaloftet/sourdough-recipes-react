@@ -1,9 +1,9 @@
 import recipesData from "../assets/recipes.json"
 import { Recipe } from "../assets/types"
-import breadWhite from "../assets/bread-recipe4.jpg"
 import sadBread from "../assets/sad_bread.png"
-import { NavLink, useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 import { useState } from "react"
+import RecipeElement from "./RecipeElement.tsx";
 
 export default function Recipes() {
   const recipes = recipesData as Recipe[]
@@ -82,28 +82,17 @@ export default function Recipes() {
 
   const recipeElement = <div className="recipes-layout">{currentRecipes.map(item => {
       return (
-        <div
+        <RecipeElement
           key={item.id}
-          className="recipe-card">
-          <NavLink to={item.id}>
-            <img className="recipe-image" src={breadWhite} alt="image of the recipe"/>
-          </NavLink>
-          <div className="recipe-title">{item.title}</div>
-          <div className="recipe-keywords">
-            <div className="recipe-keyword">{item.difficulty}</div>
-            <div className="recipe-keyword">{item.duration} minutes</div>
-          </div>
-          <button className="btn-like">❤</button>
-          <NavLink to={item.id}
-                   className="basic-btn"
-          >
-            Go to Recipe Details
-          </NavLink>
-        </div>
+          title={item.title}
+          difficulty={item.difficulty}
+          duration={item.duration}
+        />
       )
     }
   )}
   </div>
+
   const noRecipeElement = <div className="no-recipes-layout">
     <img src={sadBread} alt="The picture of a sad bread"/>
     <p>Sorry, no recipe matching your criteria was found</p>
