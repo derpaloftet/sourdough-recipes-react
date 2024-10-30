@@ -1,12 +1,12 @@
 import { Link, NavLink } from "react-router-dom"
-import { CSSProperties } from "react"
 
 export default function Navbar() {
-  const activeStyle: CSSProperties = {
-    backgroundColor: "#F3F4F6",
-    fontWeight: "bold",
-    border: "2px solid #DCDCDC",
+
+  function getClassName() {
+    return ({ isActive }: { isActive: boolean }) =>
+    isActive ? "nav-active nav-item " : "nav-item";
   }
+
   return (
     <header className="navbar">
       <div className="navbar-logo">
@@ -17,20 +17,17 @@ export default function Navbar() {
       </div>
       <nav className="navbar-menu">
         <NavLink to="/"
-                 className="nav-item"
-                 style={({isActive}): CSSProperties | undefined => isActive ? activeStyle : undefined}
+                 className={getClassName()}
         >
           Home
         </NavLink>
         <NavLink to="/recipes"
-                 className="nav-item"
-                 style={({isActive}): CSSProperties | null => isActive ? activeStyle : null}
+                 className={getClassName()}
         >
           Recipes
         </NavLink>
         <NavLink to="/add-recipes"
-                 className="nav-item"
-                 style={({isActive}): CSSProperties | null => isActive ? activeStyle : null}
+                 className={getClassName()}
         >
           Add Recipe
         </NavLink>

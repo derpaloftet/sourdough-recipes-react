@@ -61,6 +61,11 @@ html, body {
     @apply block rounded-lg px-5 py-3 text-xs font-medium text-gray-800 hover:bg-gray-100 hover:text-gray-700;
     background-color: lightgrey;
 }
+.nav-active {
+    background-color: #F3F4F6;
+    font-weight: 800;
+    border: 2px solid #DCDCDC;
+}
 
 .login {
     @apply rounded bg-gray-700 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none;
@@ -206,7 +211,7 @@ html, body {
 
 .recipes-filter button:hover {
     background-color: #F3F4F6;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .filter-clear:hover {
