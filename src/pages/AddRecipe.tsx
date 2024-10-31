@@ -3,14 +3,14 @@ import { Recipe, Ingredient, Difficulty } from "../assets/types"
 
 export default function AddRecipe() {
 
-  const initialFormState: Recipe = {
+  const initialFormState = {
     id: "1",
     title: "",
     ingredients: [],
     image: "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9.jpg",
     instructions: "",
-    difficulty: null,
-    duration: null
+    difficulty: Difficulty.Easy,
+    duration: 0
   }
 
   const [currentIngredient, setCurrentIngredient] = useState<Ingredient>(
@@ -110,7 +110,7 @@ export default function AddRecipe() {
             placeholder="Ex: 300"
             name="duration"
             id="duration"
-            value={formData.duration ?? ""}
+            value={formData.duration || ""}
             onChange={handleOnChange}
           />
         </div>

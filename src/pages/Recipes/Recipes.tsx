@@ -1,5 +1,5 @@
 import recipesData from "../../assets/recipes.json"
-import { Recipe } from "../../assets/types.ts"
+import type { FilterKey, Recipe } from "../../assets/types.ts"
 import sadBread from "../../assets/sad_bread.png"
 import { useSearchParams } from "react-router-dom"
 import { useState } from "react"
@@ -18,7 +18,7 @@ export default function Recipes() {
 
   /* Filtering */
 
-  function handleChangeFilter(key: "difficulty" | "duration" | "type" | "clear", value?: string | number) {
+  function handleChangeFilter(key: FilterKey, value?: string | number) {
     setSearchParams(prevParams => {
       const currentValue = prevParams.get(key)
 
@@ -40,9 +40,8 @@ export default function Recipes() {
     filteredRecipes = filteredRecipes.filter(item => item.difficulty === difficultyFilter)
   }
   if (durationFilter) {
-      filteredRecipes = filteredRecipes.filter(item => item.duration <= durationFilter)
+    filteredRecipes = filteredRecipes.filter(item => item.duration <= durationFilter)
   }
-
   if (typeFilter) {
     if (typeFilter === "sweet") {
       filteredRecipes = filteredRecipes.filter(item => {
@@ -80,6 +79,7 @@ export default function Recipes() {
       return (
         <RecipesElement
           key={item.id}
+          id={item.id}
           title={item.title}
           difficulty={item.difficulty}
           duration={item.duration}
@@ -89,7 +89,7 @@ export default function Recipes() {
   )}
   </div>
 
-  const noRecipeElement = <div className="no-recipes-layout">
+  const noRecipesElement = <div className="no-recipes-layout">
     <img src={sadBread} alt="The picture of a sad bread"/>
     <p>Sorry, no recipe matching your criteria was found</p>
   </div>
@@ -99,12 +99,9 @@ export default function Recipes() {
       <h2 className="recipes-header">Recipes</h2>
       <RecipesFilter
         handleChangeFilter={handleChangeFilter}
-        difficultyFilter={difficultyFilter}
-        durationFilter={durationFilter}
-        typeFilter={typeFilter}
       />
 
-      {currentRecipes.length ? recipeElement : noRecipeElement}
+      {currentRecipes.length ? recipeElement : noRecipesElement}
 
       <div className="recipes-pages">
         <button onClick={handlePrevPage} disabled={currentPage === 1}><i className="arrow left"></i></button>

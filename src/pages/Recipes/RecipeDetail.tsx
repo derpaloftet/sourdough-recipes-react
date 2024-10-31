@@ -30,13 +30,12 @@ export default function RecipeDetail() {
             </div>
             <div>
               <div className="detail">Ingredients:</div>
-              {item.ingredients.map(ingredient => {
-                return (
+              {item.ingredients.map(ingredient =>
+                (
                   <ul key={nanoid()}>
                     <li>{ingredient.name} - {ingredient.quantity}</li>
                   </ul>
-                )
-              })}
+                ))}
             </div>
             <div>
               <div className="detail">Instructions:</div>

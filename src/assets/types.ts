@@ -13,6 +13,7 @@ export interface Recipe {
   ingredients: Ingredient[];
   image: string;
   instructions: string;
-  difficulty: Difficulty | null;
-  duration: number | null;
+  difficulty: Difficulty;
+  duration: number;
 }
+export type FilterKey = "difficulty" | "duration" | "type" | "clear";

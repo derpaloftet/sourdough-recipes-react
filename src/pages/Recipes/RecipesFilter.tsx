@@ -1,7 +1,8 @@
 import { useState } from "react";
+import type { FilterKey } from "../../assets/types.ts";
 
 export default function RecipesFilter({handleChangeFilter}: {
-  handleChangeFilter: (key: "difficulty" | "duration" | "type" | "clear", value?: string | number) => void,
+  handleChangeFilter: (key: FilterKey, value?: string | number) => void,
 }) {
   const [filter, setFilter] = useState({
     difficulty: "",
