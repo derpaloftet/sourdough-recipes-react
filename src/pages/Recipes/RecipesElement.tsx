@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom"
-import breadWhite from "../assets/bread-recipe4.jpg"
-import { Difficulty } from "../assets/types.ts"
+import breadWhite from "../../assets/bread-recipe4.jpg"
+import { Difficulty } from "../../assets/types.ts"
 
-export default function RecipeElement({key, title, difficulty, duration}: {
+export default function RecipesElement({key, title, difficulty, duration}: {
   key: string,
   title: string,
   difficulty: Difficulty,

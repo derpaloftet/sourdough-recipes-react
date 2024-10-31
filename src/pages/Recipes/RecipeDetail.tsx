@@ -1,6 +1,6 @@
-import recipesData from "../assets/recipes.json"
+import recipesData from "../../assets/recipes.json"
 import { Link, useParams } from "react-router-dom"
-import breadWhite from "../assets/bread-recipe4.jpg"
+import breadWhite from "../../assets/bread-recipe4.jpg"
 import { nanoid } from 'nanoid'
 
 export default function RecipeDetail() {

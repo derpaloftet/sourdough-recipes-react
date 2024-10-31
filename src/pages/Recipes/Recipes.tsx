@@ -1,9 +1,10 @@
-import recipesData from "../assets/recipes.json"
-import { Recipe } from "../assets/types"
-import sadBread from "../assets/sad_bread.png"
+import recipesData from "../../assets/recipes.json"
+import { Recipe } from "../../assets/types.ts"
+import sadBread from "../../assets/sad_bread.png"
 import { useSearchParams } from "react-router-dom"
 import { useState } from "react"
-import RecipeElement from "./RecipeElement.tsx";
+import RecipesElement from "./RecipesElement.tsx"
+import RecipesFilter from "./RecipesFilter.tsx"
 
 export default function Recipes() {
   const recipes = recipesData as Recipe[]
@@ -82,7 +83,7 @@ export default function Recipes() {
 
   const recipeElement = <div className="recipes-layout">{currentRecipes.map(item => {
       return (
-        <RecipeElement
+        <RecipesElement
           key={item.id}
           title={item.title}
           difficulty={item.difficulty}
@@ -101,41 +102,12 @@ export default function Recipes() {
   return (
     <div className="recipes">
       <h2 className="recipes-header">Recipes</h2>
-      <div className="recipes-filter">
-        <div className="filter-difficulty">
-          <button className={difficultyFilter === "easy" ? "clicked" : ""}
-                  onClick={() => handleChangeFilter("difficulty", "easy")}>easy
-          </button>
-          <button className={difficultyFilter === "medium" ? "clicked" : ""}
-                  onClick={() => handleChangeFilter("difficulty", "medium")}>medium
-          </button>
-          <button className={difficultyFilter === "hard" ? "clicked" : ""}
-                  onClick={() => handleChangeFilter("difficulty", "hard")}>hard
-          </button>
-        </div>
-        <div className="filter-duration">
-          <button className={durationFilter <= 90 && durationFilter ? "clicked" : ""}
-                  onClick={() => handleChangeFilter("duration", 90)}>1 hour and less
-          </button>
-          <button className={durationFilter === 240 ? "clicked" : ""}
-                  onClick={() => handleChangeFilter("duration", 240)}>4 hours and less
-          </button>
-          <button className={durationFilter === 241 ? "clicked" : ""}
-                  onClick={() => handleChangeFilter("duration", 241)}>more than 4 hours
-          </button>
-        </div>
-        <div className="filter-type">
-          <button className={typeFilter === "sweet" ? "clicked" : ""}
-                  onClick={() => handleChangeFilter("type", "sweet")}>sweet
-          </button>
-          <button className={typeFilter === "savoury" ? "clicked" : ""}
-                  onClick={() => handleChangeFilter("type", "savoury")}>savoury
-          </button>
-        </div>
-      </div>
-      <button className="filter-clear"
-              onClick={() => handleChangeFilter("clear")}>Clear filters
-      </button>
+      <RecipesFilter
+        handleChangeFilter={handleChangeFilter}
+        difficultyFilter={difficultyFilter}
+        durationFilter={durationFilter}
+        typeFilter={typeFilter}
+      />
 
       {currentRecipes.length ? recipeElement : noRecipeElement}
 
