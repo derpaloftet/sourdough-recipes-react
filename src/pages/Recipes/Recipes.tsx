@@ -40,12 +40,7 @@ export default function Recipes() {
     filteredRecipes = filteredRecipes.filter(item => item.difficulty === difficultyFilter)
   }
   if (durationFilter) {
-    if (durationFilter <= 240) {
       filteredRecipes = filteredRecipes.filter(item => item.duration <= durationFilter)
-    }
-    if (durationFilter > 240) {
-      filteredRecipes = filteredRecipes.filter(item => item.duration > durationFilter)
-    }
   }
 
   if (typeFilter) {
