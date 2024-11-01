@@ -7,7 +7,9 @@ export default function RecipeDetail() {
   const params = useParams()
   const currentId = params.id
 
-  const currentRecipe = recipesData.map(item => {
+  const currentRecipe = recipesData
+    .filter(item => item.id === currentId)
+    .map(item => {
     if (item.id === currentId) {
       return (
         <div
