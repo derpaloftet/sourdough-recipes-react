@@ -161,59 +161,28 @@ html, body {
     color: #374151;
 }
 
-/* Recipe Filter */
+/* Recipes Filter */
 
 .recipes-filter {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin: .5rem .5rem;
+    gap: .5rem;
 }
-
-.recipes-filter button {
-    border-radius: 10px;
-    border: 2px solid lightslategrey;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
-    padding: .1rem;
-    font-size: .7rem;
-    background-color: lightgrey;
-    width: 100%;
+.recipes-filter select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: .8rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    min-width: 150px;
 }
-
-.recipes-filter button.clicked {
-    background-color: #F3F4F6;
-    font-weight: bold;
-    border: 2px solid #DCDCDC;
-}
-
-.filter-difficulty {
-    display: flex;
-    gap: .3rem;
-}
-
-.filter-duration {
-    display: flex;
-    gap: .3rem;
-}
-
-.filter-type {
-    display: flex;
-    gap: .3rem;
-}
-
 .filter-clear {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: .8rem;
     text-shadow: 1px 1px 5px rgb(124, 120, 115);
     margin-left: auto;
-    padding: 0.5rem 1rem;
 }
-
-.recipes-filter button:hover {
-    background-color: #F3F4F6;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
 .filter-clear:hover {
     color: dimgrey;
     text-shadow: 1px 1px 5px rgb(124, 120, 115);
@@ -445,9 +414,14 @@ footer {
     }
 
     .recipes-filter {
-        gap: 3rem;
+        gap: 2rem;
     }
-
+    .recipes-filter select {
+        font-size: 1rem;
+    }
+    .filter-clear {
+        font-size: 1rem;
+    }
     .no-recipes-layout img {
         width: 30rem;
     }
@@ -475,7 +449,6 @@ footer {
 
     .home-page > section {
         flex-direction: row;
-        /* margin: 1.5rem; */
         align-items: stretch;
     }
 
