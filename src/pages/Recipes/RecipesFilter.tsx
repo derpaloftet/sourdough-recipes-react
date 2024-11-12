@@ -17,7 +17,6 @@ export default function RecipesFilter({handleChangeFilter}: {
   return (
     <>
       <div className="recipes-filter">
-
         <select
           name="filter"
           value={filter.difficulty}
