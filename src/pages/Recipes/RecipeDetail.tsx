@@ -10,7 +10,6 @@ export default function RecipeDetail() {
   const currentRecipe = recipesData
     .filter(item => item.id === currentId)
     .map(item => {
-    if (item.id === currentId) {
       return (
         <div
           key={item.id}
@@ -46,8 +45,7 @@ export default function RecipeDetail() {
           </div>
         </div>
       )
-    }
-  })
+    })
 
   return (
     <>
