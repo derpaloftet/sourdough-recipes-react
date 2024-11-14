@@ -1,4 +1,6 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -130,7 +132,7 @@
 
 ::before,
 ::after {
-  --tw-content: '';
+  --tw-content: "";
 }
 
 /*
@@ -152,9 +154,10 @@ html,
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-     tab-size: 4;
+  tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -197,7 +200,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /*
@@ -243,7 +246,8 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
   /* 1 */
   font-feature-settings: normal;
   /* 2 */
@@ -344,9 +348,9 @@ select {
 */
 
 button,
-input:where([type='button']),
-input:where([type='reset']),
-input:where([type='submit']) {
+input:where([type="button"]),
+input:where([type="reset"]),
+input:where([type="submit"]) {
   -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
@@ -393,7 +397,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 
-[type='search'] {
+[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -486,7 +490,8 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   opacity: 1;
   /* 1 */
   color: #9ca3af;
@@ -563,10 +568,13 @@ video {
 }
 
 .filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
+    var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-html, body {
+html,
+body {
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -586,7 +594,7 @@ html, body {
 .navbar {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
   align-items: center;
   background-image: url("/public/bread-menu2.jpg");
   background-repeat: no-repeat;
@@ -598,7 +606,7 @@ html, body {
   width: 5rem;
 }
 
-.navbar-logo{
+.navbar-logo {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -658,9 +666,34 @@ html, body {
   font-weight: 500;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    text-decoration-color,
+    fill,
+    stroke,
+    opacity,
+    box-shadow,
+    transform,
+    filter,
+    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    text-decoration-color,
+    fill,
+    stroke,
+    opacity,
+    box-shadow,
+    transform,
+    filter,
+    backdrop-filter,
+    -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -668,18 +701,26 @@ html, body {
 .login:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+    0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .login:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
 }
 
 .login:active {
@@ -693,7 +734,7 @@ html, body {
   display: flex;
   flex-direction: column;
   margin-top: 1.2rem;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .basic-btn {
@@ -711,9 +752,34 @@ html, body {
   font-weight: 500;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    text-decoration-color,
+    fill,
+    stroke,
+    opacity,
+    box-shadow,
+    transform,
+    filter,
+    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    text-decoration-color,
+    fill,
+    stroke,
+    opacity,
+    box-shadow,
+    transform,
+    filter,
+    backdrop-filter,
+    -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -724,9 +790,12 @@ html, body {
 }
 
 .basic-btn:focus {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
 }
 
 .basic-btn:active {
@@ -737,7 +806,7 @@ html, body {
 .section-text h2 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #322B28;
+  color: #322b28;
   text-shadow: 1px 1px 5px rgb(124, 120, 115);
 }
 
@@ -753,7 +822,7 @@ html, body {
 
 .section-text {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
-  margin: .5rem 1rem;
+  margin: 0.5rem 1rem;
   text-align: justify;
   padding: 1.5rem;
   width: 90%;
@@ -777,7 +846,7 @@ html, body {
   font-weight: 700;
   font-size: 2rem;
   text-shadow: 1px 1px 5px rgb(124, 120, 115);
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   color: #404951;
 }
 
@@ -785,7 +854,7 @@ html, body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   flex-grow: 1;
 }
 
@@ -814,38 +883,38 @@ html, body {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin: .5rem .5rem;
+  margin: 0.5rem 0.5rem;
 }
 
 .recipes-filter button {
   border-radius: 10px;
   border: 2px solid lightslategrey;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
-  padding: .1rem;
-  font-size: .7rem;
+  padding: 0.1rem;
+  font-size: 0.7rem;
   background-color: lightgrey;
   width: 100%;
 }
 
 .recipes-filter button.clicked {
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
   font-weight: bold;
-  border: 2px solid #DCDCDC;
+  border: 2px solid #dcdcdc;
 }
 
 .filter-difficulty {
   display: flex;
-  gap: .3rem;
+  gap: 0.3rem;
 }
 
 .filter-duration {
   display: flex;
-  gap: .3rem;
+  gap: 0.3rem;
 }
 
 .filter-type {
   display: flex;
-  gap: .3rem;
+  gap: 0.3rem;
 }
 
 .filter-clear {
@@ -857,7 +926,7 @@ html, body {
 }
 
 .recipes-filter button:hover {
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -887,7 +956,7 @@ html, body {
   font-size: 1.1rem;
   color: #374151;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-  margin: .2rem;
+  margin: 0.2rem;
 }
 
 .recipe-keywords {
@@ -900,9 +969,9 @@ html, body {
 .recipe-keyword {
   border-radius: 25px;
   border: 2px solid #374151;
-  padding: .2rem;
+  padding: 0.2rem;
   width: 40%;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 /* Recipe Pages */
@@ -939,11 +1008,11 @@ html, body {
 
 .detail-image {
   width: 50%;
-  margin: .7rem auto;
+  margin: 0.7rem auto;
 }
 
 .detail-text {
-  margin: .7rem auto;
+  margin: 0.7rem auto;
   padding: 15px;
   font-size: 1rem;
   background-color: #f9f9f9;
@@ -951,10 +1020,10 @@ html, body {
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: .7rem;
+  gap: 0.7rem;
 }
 
-.detail-text h2{
+.detail-text h2 {
   font-family: "Kay Pho Du", serif;
   font-weight: 800;
   font-size: 1.6rem;
@@ -963,7 +1032,7 @@ html, body {
   text-align: center;
 }
 
-.detail{
+.detail {
   font-size: 1.2rem;
   font-weight: 600;
   color: #d87512;
@@ -1003,24 +1072,28 @@ html, body {
   border-radius: 8px;
 }
 
-.form-group label, .ingredients-label, .ingredients-added {
+.form-group label,
+.ingredients-label,
+.ingredients-added {
   font-weight: 600;
   font-size: 1rem;
   color: #31353c;
 }
 
-input, textarea {
+input,
+textarea {
   padding: 0.5rem;
 }
 
-.difficulty-group label, .ingredients label  {
+.difficulty-group label,
+.ingredients label {
   font-weight: normal;
   font-size: 1rem;
 }
 
 .difficulty-group {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 textarea {
@@ -1035,11 +1108,11 @@ textarea {
 .ingredients {
   display: flex;
   flex-direction: column;
-  gap: .6rem;
+  gap: 0.6rem;
 }
 
 .add-ingredients-btn {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   display: inline-block;
   border-radius: 9999px;
   --tw-bg-opacity: 1;
@@ -1053,9 +1126,34 @@ textarea {
   font-weight: 500;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    text-decoration-color,
+    fill,
+    stroke,
+    opacity,
+    box-shadow,
+    transform,
+    filter,
+    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    text-decoration-color,
+    fill,
+    stroke,
+    opacity,
+    box-shadow,
+    transform,
+    filter,
+    backdrop-filter,
+    -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1066,9 +1164,12 @@ textarea {
 }
 
 .add-ingredients-btn:focus {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow, 0 0 #0000);
 }
 
 .add-ingredients-btn:active {
@@ -1091,12 +1192,12 @@ footer {
   height: 50px;
   color: lightgrey;
   align-content: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 /* Not Found Page */
 
-.not-found-page h2{
+.not-found-page h2 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
@@ -1130,7 +1231,7 @@ footer {
     gap: 3rem;
   }
 
-  .no-recipes-layout img{
+  .no-recipes-layout img {
     width: 30rem;
   }
 }
@@ -1165,11 +1266,11 @@ footer {
     width: 30%;
   }
 
-  .home-benefits .home-img{
+  .home-benefits .home-img {
     order: 2;
   }
 
-  .home-page{
+  .home-page {
     margin: 1.5rem;
   }
 
@@ -1187,7 +1288,7 @@ footer {
     font-size: 1.3rem;
   }
 
-  .no-recipes-layout img{
+  .no-recipes-layout img {
     width: 35rem;
   }
 

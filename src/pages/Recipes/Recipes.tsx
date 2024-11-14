@@ -19,7 +19,7 @@ export default function Recipes() {
   /* Filtering */
 
   function handleChangeFilter(key: FilterKey, value?: string | number) {
-    setSearchParams(prevParams => {
+    setSearchParams((prevParams) => {
       const currentValue = prevParams.get(key)
 
       if (key === "clear") {
@@ -27,7 +27,7 @@ export default function Recipes() {
         prevParams.delete("duration")
         prevParams.delete("type")
       } else if (currentValue === String(value)) {
-        prevParams.delete(key);
+        prevParams.delete(key)
       } else {
         prevParams.set(key, String(value))
       }
@@ -37,20 +37,28 @@ export default function Recipes() {
 
   let filteredRecipes = recipes
   if (difficultyFilter) {
-    filteredRecipes = filteredRecipes.filter(item => item.difficulty === difficultyFilter)
+    filteredRecipes = filteredRecipes.filter(
+      (item) => item.difficulty === difficultyFilter,
+    )
   }
   if (durationFilter) {
-    filteredRecipes = filteredRecipes.filter(item => item.duration <= durationFilter)
+    filteredRecipes = filteredRecipes.filter(
+      (item) => item.duration <= durationFilter,
+    )
   }
   if (typeFilter) {
     if (typeFilter === "sweet") {
-      filteredRecipes = filteredRecipes.filter(item => {
-        return item.ingredients.some(ingredient => ingredient.name === "sugar")
+      filteredRecipes = filteredRecipes.filter((item) => {
+        return item.ingredients.some(
+          (ingredient) => ingredient.name === "sugar",
+        )
       })
     }
     if (typeFilter === "savoury") {
-      filteredRecipes = filteredRecipes.filter(item => {
-        return item.ingredients.every(ingredient => ingredient.name !== "sugar")
+      filteredRecipes = filteredRecipes.filter((item) => {
+        return item.ingredients.every(
+          (ingredient) => ingredient.name !== "sugar",
+        )
       })
     }
   }
@@ -61,7 +69,10 @@ export default function Recipes() {
   const totalPages = Math.ceil(filteredRecipes.length / itemsPerPage)
   const [currentPage, setCurrentPage] = useState(1)
   const startIndex = (currentPage - 1) * itemsPerPage
-  const currentRecipes = filteredRecipes.slice(startIndex, startIndex + itemsPerPage)
+  const currentRecipes = filteredRecipes.slice(
+    startIndex,
+    startIndex + itemsPerPage,
+  )
 
   function handlePrevPage() {
     if (currentPage > 1) {
@@ -75,39 +86,47 @@ export default function Recipes() {
     }
   }
 
-  const recipeElement = <div className="recipes-layout">{currentRecipes.map(item => {
-      return (
-        <RecipesElement
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          difficulty={item.difficulty}
-          duration={item.duration}
-        />
-      )
-    }
-  )}
-  </div>
+  const recipeElement = (
+    <div className="recipes-layout">
+      {currentRecipes.map((item) => {
+        return (
+          <RecipesElement
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            difficulty={item.difficulty}
+            duration={item.duration}
+          />
+        )
+      })}
+    </div>
+  )
 
-  const noRecipesElement = <div className="no-recipes-layout">
-    <img src={sadBread} alt="The picture of a sad bread"/>
-    <p>Sorry, no recipe matching your criteria was found</p>
-  </div>
+  const noRecipesElement = (
+    <div className="no-recipes-layout">
+      <img src={sadBread} alt="The picture of a sad bread" />
+      <p>Sorry, no recipe matching your criteria was found</p>
+    </div>
+  )
 
   return (
     <div className="recipes">
       <h2 className="recipes-header">Recipes</h2>
-      <RecipesFilter
-        handleChangeFilter={handleChangeFilter}
-      />
+      <RecipesFilter handleChangeFilter={handleChangeFilter} />
 
       {currentRecipes.length ? recipeElement : noRecipesElement}
 
       <div className="recipes-pages">
-        <button onClick={handlePrevPage} disabled={currentPage === 1}><i className="arrow left"></i></button>
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>
+          <i className="arrow left"></i>
+        </button>
         {currentPage}
-        <button onClick={handleNextPage} disabled={currentPage === totalPages || !currentRecipes.length}><i
-          className="arrow right"></i></button>
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages || !currentRecipes.length}
+        >
+          <i className="arrow right"></i>
+        </button>
       </div>
     </div>
   )

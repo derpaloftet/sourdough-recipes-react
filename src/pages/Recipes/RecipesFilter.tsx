@@ -1,17 +1,19 @@
-import { useState } from "react";
-import type { FilterKey } from "../../assets/types.ts";
+import { useState } from "react"
+import type { FilterKey } from "../../assets/types.ts"
 
-export default function RecipesFilter({handleChangeFilter}: {
-  handleChangeFilter: (key: FilterKey, value?: string | number) => void,
+export default function RecipesFilter({
+  handleChangeFilter,
+}: {
+  handleChangeFilter: (key: FilterKey, value?: string | number) => void
 }) {
   const [filter, setFilter] = useState<{
-    difficulty: string,
-    duration: string,
+    difficulty: string
+    duration: string
     type: string
   }>({
     difficulty: "",
     duration: "",
-    type: ""
+    type: "",
   })
 
   return (
@@ -22,10 +24,10 @@ export default function RecipesFilter({handleChangeFilter}: {
           value={filter.difficulty}
           onChange={(event) => {
             handleChangeFilter("difficulty", event.target.value)
-            setFilter(prevState => {
+            setFilter((prevState) => {
               return {
                 ...prevState,
-                difficulty: event.target.value
+                difficulty: event.target.value,
               }
             })
           }}
@@ -40,10 +42,10 @@ export default function RecipesFilter({handleChangeFilter}: {
           value={filter.duration}
           onChange={(event) => {
             handleChangeFilter("duration", event.target.value)
-            setFilter(prevState => {
+            setFilter((prevState) => {
               return {
                 ...prevState,
-                duration: event.target.value
+                duration: event.target.value,
               }
             })
           }}
@@ -58,10 +60,10 @@ export default function RecipesFilter({handleChangeFilter}: {
           value={filter.type}
           onChange={(event) => {
             handleChangeFilter("type", event.target.value)
-            setFilter(prevState => {
+            setFilter((prevState) => {
               return {
                 ...prevState,
-                type: event.target.value
+                type: event.target.value,
               }
             })
           }}
@@ -71,8 +73,11 @@ export default function RecipesFilter({handleChangeFilter}: {
           <option value="savoury">Savoury</option>
         </select>
       </div>
-      <button className="filter-clear"
-              onClick={() => handleChangeFilter("clear")}>Clear filters
+      <button
+        className="filter-clear"
+        onClick={() => handleChangeFilter("clear")}
+      >
+        Clear filters
       </button>
     </>
   )
