@@ -1,6 +1,5 @@
 [
   {
-    "id": "a2b6789f-1c2d-4d0e-8a9e-8e36c2e7b11b",
     "title": "Simple Sourdough Bread",
     "ingredients": [
       {
@@ -30,7 +29,6 @@
     "duration": 300
   },
   {
-    "id": "b9e2911c-7b4e-4a0a-9af5-75d2b7e3acb9",
     "title": "Whole Wheat Sourdough",
     "ingredients": [
       {
@@ -56,7 +54,6 @@
     "duration": 360
   },
   {
-    "id": "d0f66b2a-05b4-4737-8ed0-f8b4d9f81fc2",
     "title": "Rye Sourdough",
     "ingredients": [
       {
@@ -86,7 +83,6 @@
     "duration": 340
   },
   {
-    "id": "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9",
     "title": "Seeded Sourdough",
     "ingredients": [
       {
@@ -120,7 +116,6 @@
     "duration": 480
   },
   {
-    "id": "e8a012ab-9e5d-44f0-bc2f-74e8709e0b4d",
     "title": "Sourdough Baguette",
     "ingredients": [
       {
@@ -146,7 +141,6 @@
     "duration": 240
   },
   {
-    "id": "c7f093dd-3787-4ecf-8de8-bbfcfe4b2a83",
     "title": "Multigrain Sourdough",
     "ingredients": [
       {
@@ -180,7 +174,6 @@
     "duration": 420
   },
   {
-    "id": "a9b7b1d1-6c1b-4b74-a10b-98f468f472cd",
     "title": "Spelt Sourdough",
     "ingredients": [
       {
@@ -206,7 +199,6 @@
     "duration": 300
   },
   {
-    "id": "d8e1234e-73a6-4d3c-a4f5-2c2fc89eebf9",
     "title": "Olive Sourdough",
     "ingredients": [
       {
@@ -236,7 +228,6 @@
     "duration": 340
   },
   {
-    "id": "d3fba8f0-4a5c-4f97-87e1-42c7b3fa212b",
     "title": "Sourdough Pizza Dough",
     "ingredients": [
       {
@@ -266,7 +257,6 @@
     "duration": 420
   },
   {
-    "id": "f98e334e-14c7-45a7-9e77-2f9b4215a3b1",
     "title": "Herb Sourdough",
     "ingredients": [
       {
@@ -300,7 +290,6 @@
     "duration": 330
   },
   {
-    "id": "fa7d36c9-4b71-41a8-a2f0-e6e2b9d2b5b9",
     "title": "Sourdough Focaccia",
     "ingredients": [
       {
@@ -334,7 +323,6 @@
     "duration": 480
   },
   {
-    "id": "9cba2175-e66c-4a11-9c83-7489c231b6fa",
     "title": "Sourdough English Muffins",
     "ingredients": [
       {
@@ -364,7 +352,6 @@
     "duration": 240
   },
   {
-    "id": "d36f8e5d-733b-47f8-bdac-5b9e42b68e49",
     "title": "Sourdough Pancakes",
     "ingredients": [
       {
@@ -398,7 +385,6 @@
     "duration": 30
   },
   {
-    "id": "f765db90-30cb-4ef1-b5f2-0a915a456aab",
     "title": "Sourdough Cinnamon Rolls",
     "ingredients": [
       {
@@ -436,7 +422,6 @@
     "duration": 300
   },
   {
-    "id": "a6be1584-58f0-4abf-8f39-6d9fbf6a7c3c",
     "title": "Sourdough Banana Bread",
     "ingredients": [
       {
@@ -474,7 +459,6 @@
     "duration": 60
   },
   {
-    "id": "c1b62c3a-94e7-4d29-999d-f24db3d5d81b",
     "title": "Sourdough Pretzels",
     "ingredients": [
       {
