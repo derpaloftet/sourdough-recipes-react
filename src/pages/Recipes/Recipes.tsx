@@ -1,13 +1,22 @@
-import recipesData from "../../assets/recipes.json"
 import type { FilterKey, Recipe } from "../../assets/types.ts"
 import sadBread from "../../assets/sad_bread.png"
 import { useSearchParams } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import RecipesElement from "./RecipesElement.tsx"
 import RecipesFilter from "./RecipesFilter.tsx"
+import { getRecipes } from "../../services/RecipesStorage.ts"
 
 export default function Recipes() {
-  const recipes = recipesData as Recipe[]
+  /*const recipes = recipesData as Recipe[]*/
+
+  const [recipes, setRecipes] = useState([] as Recipe[])
+  useEffect(() => {
+    console.log("Recipes - useEffect")
+    getRecipes().then((recipes) => {
+      console.log("recipes" + recipes)
+      setRecipes(recipes)
+    })
+  }, [])
 
   /* Search params */
 

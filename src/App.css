@@ -130,7 +130,7 @@ body {
   font-weight: 700;
   font-size: 2rem;
   text-shadow: 1px 1px 5px rgb(124, 120, 115);
-  margin-top: 0.5rem;
+  margin: 1rem;
   color: #404951;
 }
 
@@ -165,7 +165,8 @@ body {
 
 .recipes-filter {
   display: flex;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.8rem;
 }
 .recipes-filter select {
   padding: 0.5rem;
@@ -182,6 +183,7 @@ body {
   font-size: 0.8rem;
   text-shadow: 1px 1px 5px rgb(124, 120, 115);
   margin-left: auto;
+  padding: .5rem 1rem;
 }
 .filter-clear:hover {
   color: dimgrey;
