@@ -11,19 +11,37 @@ export default function RecipeDetail() {
   const currentId = params.id as string
 
   const [currentRecipe, setCurrentRecipe] = useState({} as Recipe | null)
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
-    console.log("RecipeDetail - useEffect")
-    getRecipeById(currentId).then((recipe) => {
-      console.dir(recipe)
-      setCurrentRecipe(recipe)
-    })
+    setLoading(true)
+    getRecipeById(currentId)
+      .then((recipe) => {
+        if (recipe) {
+          console.dir(recipe)
+          setCurrentRecipe(recipe)
+        } else {
+          setCurrentRecipe(null)
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching recipe:", error)
+        setCurrentRecipe(null)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }, [currentId])
 
-  /*const currentRecipe = recipesData.find((item) => item.id === currentId)*/
-
-  if (currentRecipe == null || Object.keys(currentRecipe).length <= 0) {
+  if (loading) {
+    console.log("loading")
+    return <div>Loading</div>
+  }
+  if (!currentRecipe) {
+    console.log("notfound")
     return <NotFound />
   }
+
   return (
     <div className="recipe-detail">
       <img className="detail-image" src={breadWhite} alt="recipe image" />
@@ -59,14 +77,19 @@ export default function RecipeDetail() {
   )
 }
 /*
-<div>
-          <div className="detail">Ingredients:</div>
-          {currentRecipe.ingredients.map((ingredient) => (
-            <ul key={nanoid()}>
-              <li>
-                {ingredient.name} - {ingredient.quantity}
-              </li>
-            </ul>
-          ))}
-        </div>
+  useEffect(() => {
+    console.log("RecipeDetail - useEffect")
+    getRecipeById(currentId).then((recipe) => {
+      setCurrentRecipe(recipe)
+    })
+  }, [currentId])
+
+  if (currentRecipe == null) {
+    console.log("loading")
+    return <div>Loading</div>
+  } else if (Object.keys(currentRecipe).length <= 0) {
+    console.log("notfound")
+    return <NotFound />
+  }
+
  */
