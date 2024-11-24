@@ -24,7 +24,7 @@ export default function RecipeDetail() {
         }
       })
       .catch((error) => {
-        console.error("Error fetching recipe:", error)
+        console.error("It was not possible to fetch this recipe by id:", error)
         setCurrentRecipe(null)
       })
       .finally(() => {
