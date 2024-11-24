@@ -18,7 +18,6 @@ export default function RecipeDetail() {
     getRecipeById(currentId)
       .then((recipe) => {
         if (recipe) {
-          console.dir(recipe)
           setCurrentRecipe(recipe)
         } else {
           setCurrentRecipe(null)
@@ -34,11 +33,9 @@ export default function RecipeDetail() {
   }, [currentId])
 
   if (loading) {
-    console.log("loading")
     return <div>Loading</div>
   }
   if (!currentRecipe) {
-    console.log("notfound")
     return <NotFound />
   }
 
