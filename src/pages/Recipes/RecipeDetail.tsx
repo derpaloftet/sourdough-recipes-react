@@ -34,8 +34,8 @@ export default function RecipeDetail() {
   }, [currentId])
 
   if (loading) {
-    console.log("loading")
-    return <div>Loading</div>
+    console.log("loading!")
+    return <div>Loading!</div>
   }
   if (!currentRecipe) {
     console.log("notfound")
