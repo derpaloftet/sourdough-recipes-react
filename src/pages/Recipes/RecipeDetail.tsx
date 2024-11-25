@@ -18,6 +18,7 @@ export default function RecipeDetail() {
     getRecipeById(currentId)
       .then((recipe) => {
         if (recipe) {
+          console.dir(recipe)
           setCurrentRecipe(recipe)
         } else {
           setCurrentRecipe(null)
