@@ -7,20 +7,39 @@ import RecipesFilter from "./RecipesFilter.tsx"
 import { getRecipes } from "../../services/RecipesStorage.ts"
 
 export default function Recipes() {
-  /*const recipes = recipesData as Recipe[]*/
+  const [recipes, setRecipes] = useState([] as Recipe[] | null)
+  const [loading, setLoading] = useState(true)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [currentPage, setCurrentPage] = useState(1)
 
-  const [recipes, setRecipes] = useState([] as Recipe[])
   useEffect(() => {
-    console.log("Recipes - useEffect")
-    getRecipes().then((recipes) => {
-      console.log("recipes" + recipes)
-      setRecipes(recipes)
-    })
+    setLoading(true)
+    getRecipes()
+      .then((recipes) => {
+        if (recipes) {
+          setRecipes(recipes)
+        } else {
+          setRecipes(null)
+        }
+      })
+      .catch((error) => {
+        console.error("It was not possible to fetch the recipes", error)
+        setRecipes(null)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }, [])
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+  if (!recipes) {
+    return <div>No Recipes found</div>
+  }
 
   /* Search params */
 
-  const [searchParams, setSearchParams] = useSearchParams()
   const difficultyFilter = searchParams.get("difficulty")
   const durationFilter = Number(searchParams.get("duration"))
   const typeFilter = searchParams.get("type")
@@ -76,7 +95,6 @@ export default function Recipes() {
 
   const itemsPerPage = 8
   const totalPages = Math.ceil(filteredRecipes.length / itemsPerPage)
-  const [currentPage, setCurrentPage] = useState(1)
   const startIndex = (currentPage - 1) * itemsPerPage
   const currentRecipes = filteredRecipes.slice(
     startIndex,

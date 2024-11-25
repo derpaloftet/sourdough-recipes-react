@@ -33,7 +33,7 @@ export default function RecipeDetail() {
   }, [currentId])
 
   if (loading) {
-    return <div>Loading</div>
+    return <div>Loading...</div>
   }
   if (!currentRecipe) {
     return <NotFound />
