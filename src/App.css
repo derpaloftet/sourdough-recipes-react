@@ -309,6 +309,9 @@ body {
   padding-top: 1rem;
   gap: 1rem;
 }
+.disabled {
+  background-color: dimgrey;
+}
 
 .form-group {
   display: grid;
@@ -375,6 +378,12 @@ textarea {
 
 .add-recipe-btn {
   margin-bottom: 1.3rem;
+}
+.submit-message {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4d9c4d;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */

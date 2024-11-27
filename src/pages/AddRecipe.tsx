@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import { Recipe, Ingredient, Difficulty } from "../assets/types"
+import { Ingredient, Difficulty, RecipeRequest } from "../assets/types"
+import { addRecipe } from "../services/RecipesStorage.ts"
 
 export default function AddRecipe() {
-  const initialFormState = {
-    id: "1",
+  const initialFormState: RecipeRequest = {
     title: "",
     ingredients: [],
     image: "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9.jpg",
@@ -11,12 +11,13 @@ export default function AddRecipe() {
     difficulty: Difficulty.Easy,
     duration: 0,
   }
-
   const [currentIngredient, setCurrentIngredient] = useState<Ingredient>({
     name: "",
     quantity: "",
   })
-  const [formData, setFormData] = useState<Recipe>(initialFormState)
+  const [formData, setFormData] = useState<RecipeRequest>(initialFormState)
+  const [disabledSubmitBtn, setDisabledSubmitBtn] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   function handleOnChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -52,10 +53,16 @@ export default function AddRecipe() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    setDisabledSubmitBtn(true)
+    await addRecipe(formData)
     setFormData(initialFormState)
-    console.log(formData)
+    setDisabledSubmitBtn(false)
+    setSubmitted(true)
+    setTimeout(() => {
+      setSubmitted(false)
+    }, 7000)
   }
 
   return (
@@ -163,9 +170,18 @@ export default function AddRecipe() {
           />
         </div>
       </form>
-      <button className="basic-btn add-recipe-btn" onClick={handleSubmit}>
+      <button
+        className={`basic-btn add-recipe-btn ${disabledSubmitBtn ? "disabled" : ""}`}
+        onClick={handleSubmit}
+        disabled={disabledSubmitBtn && true}
+      >
         Add Recipe
       </button>
+      {submitted && (
+        <div className="submit-message">
+          Your Recipe has been successfully submitted! Thank you for sharing!
+        </div>
+      )}
     </div>
   )
 }
