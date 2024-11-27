@@ -267,6 +267,7 @@ body {
 }
 
 .detail-text {
+  width: 100%;
   margin: 0.7rem auto;
   padding: 15px;
   font-size: 1rem;
@@ -426,6 +427,12 @@ footer {
   .recipe-detail {
     display: flex;
     flex-direction: row;
+  }
+  .detail-image {
+    width: 50%;
+  }
+  .detail-text {
+    width: 50%;
   }
 
   .recipes-filter {
