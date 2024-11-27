@@ -7,8 +7,10 @@ export interface Ingredient {
   name: string
   quantity: string
 }
-export interface Recipe {
+export interface Recipe extends RecipeRequest {
   id: string
+}
+export interface RecipeRequest {
   title: string
   ingredients: Ingredient[]
   image: string

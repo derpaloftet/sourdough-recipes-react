@@ -1,6 +1,6 @@
 import { collection, getDoc, getDocs, doc, addDoc } from "firebase/firestore"
 import { db } from "./firestore.ts"
-import { Recipe } from "../assets/types.ts"
+import { Recipe, RecipeRequest } from "../assets/types.ts"
 
 const collectionName = "Recipe"
 
@@ -38,7 +38,7 @@ export const getRecipeById = async (id: string): Promise<Recipe | null> => {
   return null
 }
 
-export const addRecipe = async (recipe: object) => {
+export const addRecipe = async (recipe: RecipeRequest) => {
   const docRef = await addDoc(collection(db, collectionName), recipe)
   return docRef.id
 }
