@@ -267,6 +267,7 @@ body {
 }
 
 .detail-text {
+  width: 100%;
   margin: 0.7rem auto;
   padding: 15px;
   font-size: 1rem;
@@ -308,6 +309,7 @@ body {
   min-height: 100vh;
   padding-top: 1rem;
   gap: 1rem;
+  margin: 1rem;
 }
 
 .form-group {
@@ -372,9 +374,25 @@ textarea {
   @apply focus:ring active:bg-indigo-500;
   width: 30%;
 }
-
 .add-recipe-btn {
-  margin-bottom: 1.3rem;
+  margin-top: 1rem;
+  @apply inline-block rounded-full bg-gray-700 px-10 py-3 text-sm font-medium text-white transition hover:bg-gray-500;
+  @apply focus:ring active:bg-indigo-500;
+}
+.disabled {
+  background-color: dimgrey;
+  margin-top: 1rem;
+  @apply inline-block rounded-full bg-gray-700 px-10 py-3 text-sm font-medium ;
+}
+.submit-message {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4d9c4d;
+}
+.form-error-message {
+  font-size: .9rem;
+  color: red;
+  line-height: 0.8;
 }
 
 /* Footer */
@@ -417,6 +435,12 @@ footer {
   .recipe-detail {
     display: flex;
     flex-direction: row;
+  }
+  .detail-image {
+    width: 50%;
+  }
+  .detail-text {
+    width: 50%;
   }
 
   .recipes-filter {
