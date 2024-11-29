@@ -54,16 +54,11 @@ export default function AddRecipe() {
     }
   }
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-
-    /* Form Validation */
-
+  function validateForm() {
     setFormError([])
     let hasErrors = false
     if (!formData.title.trim()) {
       setFormError((prevState) => [...prevState, "Please, add a title"])
-      setDisabledSubmitBtn(true)
       hasErrors = true
     }
     if (formData.duration <= 0) {
@@ -71,7 +66,6 @@ export default function AddRecipe() {
         ...prevState,
         "Please, add duration in the form of a number!",
       ])
-      setDisabledSubmitBtn(true)
       hasErrors = true
     }
     if (formData.ingredients.length <= 0) {
@@ -79,24 +73,31 @@ export default function AddRecipe() {
         ...prevState,
         "Please, add an ingredients list!",
       ])
-      setDisabledSubmitBtn(true)
       hasErrors = true
     }
     if (formData.image === "") {
       setFormError((prevState) => [...prevState, "Please, add an image!"])
-      setDisabledSubmitBtn(true)
       hasErrors = true
     }
     if (!formData.instructions.trim()) {
       setFormError((prevState) => [...prevState, "Please, add instructions!"])
-      setDisabledSubmitBtn(true)
       hasErrors = true
     }
+    return hasErrors
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setDisabledSubmitBtn(true)
+    setTimeout(() => {
+      setDisabledSubmitBtn(false)
+    }, 3000)
+
+    /* Form Validation */
+    const formHasErrors = validateForm()
 
     /* Form Submitting */
-
-    if (!hasErrors) {
-      setDisabledSubmitBtn(true)
+    if (!formHasErrors) {
       await addRecipe(formData)
       setFormData(initialFormState)
       setSubmitted(true)
@@ -104,9 +105,6 @@ export default function AddRecipe() {
         setSubmitted(false)
       }, 7000)
     }
-    setTimeout(() => {
-      setDisabledSubmitBtn(false)
-    }, 2000)
   }
   return (
     <div className="add-recipe">
