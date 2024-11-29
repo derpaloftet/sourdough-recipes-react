@@ -18,6 +18,7 @@ export default function AddRecipe() {
   const [formData, setFormData] = useState<RecipeRequest>(initialFormState)
   const [disabledSubmitBtn, setDisabledSubmitBtn] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [formError, setFormError] = useState<string[]>([])
 
   function handleOnChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -55,16 +56,58 @@ export default function AddRecipe() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setDisabledSubmitBtn(true)
-    await addRecipe(formData)
-    setFormData(initialFormState)
-    setDisabledSubmitBtn(false)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-    }, 7000)
-  }
 
+    /* Form Validation */
+
+    setFormError([])
+    let hasErrors = false
+    if (!formData.title.trim()) {
+      setFormError((prevState) => [...prevState, "Please, add a title"])
+      setDisabledSubmitBtn(true)
+      hasErrors = true
+    }
+    if (formData.duration <= 0) {
+      setFormError((prevState) => [
+        ...prevState,
+        "Please, add duration in the form of a number!",
+      ])
+      setDisabledSubmitBtn(true)
+      hasErrors = true
+    }
+    if (formData.ingredients.length <= 0) {
+      setFormError((prevState) => [
+        ...prevState,
+        "Please, add an ingredients list!",
+      ])
+      setDisabledSubmitBtn(true)
+      hasErrors = true
+    }
+    if (formData.image === "") {
+      setFormError((prevState) => [...prevState, "Please, add an image!"])
+      setDisabledSubmitBtn(true)
+      hasErrors = true
+    }
+    if (!formData.instructions.trim()) {
+      setFormError((prevState) => [...prevState, "Please, add instructions!"])
+      setDisabledSubmitBtn(true)
+      hasErrors = true
+    }
+
+    /* Form Submitting */
+
+    if (!hasErrors) {
+      setDisabledSubmitBtn(true)
+      await addRecipe(formData)
+      setFormData(initialFormState)
+      setSubmitted(true)
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 7000)
+    }
+    setTimeout(() => {
+      setDisabledSubmitBtn(false)
+    }, 2000)
+  }
   return (
     <div className="add-recipe">
       <h1 className="recipes-header">Add your Recipe</h1>
@@ -115,7 +158,8 @@ export default function AddRecipe() {
         <div className="form-group">
           <label htmlFor="duration">Duration (minutes):</label>
           <input
-            type="text"
+            type="number"
+            min="0"
             placeholder="Ex: 300"
             name="duration"
             id="duration"
@@ -171,12 +215,21 @@ export default function AddRecipe() {
         </div>
       </form>
       <button
-        className={`basic-btn add-recipe-btn ${disabledSubmitBtn ? "disabled" : ""}`}
+        className={disabledSubmitBtn ? "disabled" : "add-recipe-btn"}
         onClick={handleSubmit}
         disabled={disabledSubmitBtn && true}
       >
         Add Recipe
       </button>
+      {formError.length > 0 &&
+        formError.map((error, index) => {
+          console.log(formError)
+          return (
+            <p key={index} className="form-error-message">
+              {error}
+            </p>
+          )
+        })}
       {submitted && (
         <div className="submit-message">
           Your Recipe has been successfully submitted! Thank you for sharing!
