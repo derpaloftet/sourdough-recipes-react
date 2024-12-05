@@ -107,7 +107,7 @@ export default function AddRecipe() {
     }
   }
   return (
-    <div className="add-recipe">
+    <main className="add-recipe">
       <h1 className="recipes-header">Add your Recipe</h1>
       <form className="add-recipe-form">
         <div className="form-group">
@@ -233,6 +233,6 @@ export default function AddRecipe() {
           Your Recipe has been successfully submitted! Thank you for sharing!
         </div>
       )}
-    </div>
+    </main>
   )
 }

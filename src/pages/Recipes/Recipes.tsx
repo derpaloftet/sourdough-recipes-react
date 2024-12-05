@@ -137,7 +137,7 @@ export default function Recipes() {
   )
 
   return (
-    <div className="recipes">
+    <main className="recipes">
       <h2 className="recipes-header">Recipes</h2>
       <RecipesFilter handleChangeFilter={handleChangeFilter} />
 
@@ -155,6 +155,6 @@ export default function Recipes() {
           <i className="arrow right"></i>
         </button>
       </div>
-    </div>
+    </main>
   )
 }
