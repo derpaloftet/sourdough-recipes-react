@@ -5,7 +5,6 @@ import Home from "./pages/Home"
 import Recipes from "./pages/Recipes/Recipes.tsx"
 import RecipeDetail from "./pages/Recipes/RecipeDetail.tsx"
 import AddRecipe from "./pages/AddRecipe"
-import Login from "./pages/Login"
 import NotFound from "./pages/NotFound"
 
 export default function App() {
@@ -17,7 +16,6 @@ export default function App() {
           <Route path="recipes" element={<Recipes />} />
           <Route path="recipes/:id" element={<RecipeDetail />} />
           <Route path="add-recipes" element={<AddRecipe />} />
-          <Route path="login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
