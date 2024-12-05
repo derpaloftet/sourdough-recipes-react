@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import { Recipe, Ingredient, Difficulty } from "../assets/types"
+import { Ingredient, Difficulty, RecipeRequest } from "../assets/types"
+import { addRecipe } from "../services/RecipesStorage.ts"
 
 export default function AddRecipe() {
-  const initialFormState = {
-    id: "1",
+  const initialFormState: RecipeRequest = {
     title: "",
     ingredients: [],
     image: "f92b87bc-3eaf-43cb-a7d5-fbfe4c6508b9.jpg",
@@ -11,12 +11,14 @@ export default function AddRecipe() {
     difficulty: Difficulty.Easy,
     duration: 0,
   }
-
   const [currentIngredient, setCurrentIngredient] = useState<Ingredient>({
     name: "",
     quantity: "",
   })
-  const [formData, setFormData] = useState<Recipe>(initialFormState)
+  const [formData, setFormData] = useState<RecipeRequest>(initialFormState)
+  const [disabledSubmitBtn, setDisabledSubmitBtn] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [formError, setFormError] = useState<string[]>([])
 
   function handleOnChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -52,12 +54,58 @@ export default function AddRecipe() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setFormData(initialFormState)
-    console.log(formData)
+  function validateForm() {
+    setFormError([])
+    let hasErrors = false
+    if (!formData.title.trim()) {
+      setFormError((prevState) => [...prevState, "Please, add a title"])
+      hasErrors = true
+    }
+    if (formData.duration <= 0) {
+      setFormError((prevState) => [
+        ...prevState,
+        "Please, add duration in the form of a number!",
+      ])
+      hasErrors = true
+    }
+    if (formData.ingredients.length <= 0) {
+      setFormError((prevState) => [
+        ...prevState,
+        "Please, add an ingredients list!",
+      ])
+      hasErrors = true
+    }
+    if (formData.image === "") {
+      setFormError((prevState) => [...prevState, "Please, add an image!"])
+      hasErrors = true
+    }
+    if (!formData.instructions.trim()) {
+      setFormError((prevState) => [...prevState, "Please, add instructions!"])
+      hasErrors = true
+    }
+    return hasErrors
   }
 
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setDisabledSubmitBtn(true)
+    setTimeout(() => {
+      setDisabledSubmitBtn(false)
+    }, 3000)
+
+    /* Form Validation */
+    const formHasErrors = validateForm()
+
+    /* Form Submitting */
+    if (!formHasErrors) {
+      await addRecipe(formData)
+      setFormData(initialFormState)
+      setSubmitted(true)
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 7000)
+    }
+  }
   return (
     <div className="add-recipe">
       <h1 className="recipes-header">Add your Recipe</h1>
@@ -108,7 +156,8 @@ export default function AddRecipe() {
         <div className="form-group">
           <label htmlFor="duration">Duration (minutes):</label>
           <input
-            type="text"
+            type="number"
+            min="0"
             placeholder="Ex: 300"
             name="duration"
             id="duration"
@@ -163,9 +212,27 @@ export default function AddRecipe() {
           />
         </div>
       </form>
-      <button className="basic-btn add-recipe-btn" onClick={handleSubmit}>
+      <button
+        className={disabledSubmitBtn ? "disabled" : "add-recipe-btn"}
+        onClick={handleSubmit}
+        disabled={disabledSubmitBtn && true}
+      >
         Add Recipe
       </button>
+      {formError.length > 0 &&
+        formError.map((error, index) => {
+          console.log(formError)
+          return (
+            <p key={index} className="form-error-message">
+              {error}
+            </p>
+          )
+        })}
+      {submitted && (
+        <div className="submit-message">
+          Your Recipe has been successfully submitted! Thank you for sharing!
+        </div>
+      )}
     </div>
   )
 }
