@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom"
-import breadWhite from "../../assets/bread-recipe4.jpg"
+import breadWhite from "../../assets/recipes/bread-recipe4.jpg"
 import { nanoid } from "nanoid"
 import NotFound from "../NotFound.tsx"
 import { getRecipeById } from "../../services/RecipesStorage.ts"

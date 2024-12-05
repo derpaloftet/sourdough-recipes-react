@@ -24,9 +24,6 @@ export default function Navbar() {
         <NavLink to="/add-recipes" className={getClassName()}>
           Add Recipe
         </NavLink>
-        <div className="login">
-          <Link to="/login">Login</Link>
-        </div>
       </nav>
     </header>
   )

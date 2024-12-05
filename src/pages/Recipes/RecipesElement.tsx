@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import breadWhite from "../../assets/bread-recipe4.jpg"
+import breadWhite from "../../assets/recipes/bread-recipe4.jpg"
 import type { Difficulty } from "../../assets/types.ts"
 
 export default function RecipesElement({

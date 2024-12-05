@@ -58,11 +58,11 @@ export default function Home() {
             adding your own recipes on our website!
           </p>
           <p>
-            Just log in into your account and let the others taste your best
-            sourdough recipes!
+            Let the others taste your best sourdough recipes! Share with the
+            world your knowledge!
           </p>
-          <NavLink to="/login" className="basic-btn">
-            Go to Login
+          <NavLink to="/add-recipes" className="basic-btn">
+            Go to Add Recipe
           </NavLink>
         </div>
       </section>
