@@ -61,6 +61,7 @@ export default function Recipes() {
       }
       return prevParams
     })
+    setCurrentPage(1)
   }
 
   let filteredRecipes = recipes
@@ -121,6 +122,7 @@ export default function Recipes() {
             key={item.id}
             id={item.id}
             title={item.title}
+            image={item.image}
             difficulty={item.difficulty}
             duration={item.duration}
           />

@@ -1,15 +1,17 @@
 import { NavLink } from "react-router-dom"
-import breadWhite from "../../assets/recipes/bread-recipe4.jpg"
+import breadWhite from "../../assets/bread-recipe3.jpg"
 import type { Difficulty } from "../../assets/types.ts"
 
 export default function RecipesElement({
   id,
   title,
+  image,
   difficulty,
   duration,
 }: {
   id: string
   title: string
+  image: string
   difficulty: Difficulty
   duration: number
 }) {
@@ -19,7 +21,11 @@ export default function RecipesElement({
         <NavLink to={id}>
           <img
             className="recipe-image"
-            src={breadWhite}
+            src={`/src/assets/recipes/${image}`}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null // prevents looping
+              currentTarget.src = breadWhite
+            }}
             alt="image of the recipe"
           />
         </NavLink>
@@ -29,7 +35,7 @@ export default function RecipesElement({
           <div className="recipe-keyword">{duration} minutes</div>
         </div>
         <button className="btn-like">❤</button>
-        <NavLink to={id} className="basic-btn">
+        <NavLink to={id} className="recipe-btn">
           Go to Recipe Details
         </NavLink>
       </div>

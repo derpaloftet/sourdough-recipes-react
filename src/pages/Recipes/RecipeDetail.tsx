@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom"
-import breadWhite from "../../assets/recipes/bread-recipe4.jpg"
+import breadWhite from "../../assets/bread-recipe3.jpg"
 import { nanoid } from "nanoid"
 import NotFound from "../NotFound.tsx"
 import { getRecipeById } from "../../services/RecipesStorage.ts"
@@ -42,7 +42,15 @@ export default function RecipeDetail() {
 
   return (
     <div className="recipe-detail">
-      <img className="detail-image" src={breadWhite} alt="recipe image" />
+      <img
+        className="detail-image"
+        src={`/src/assets/recipes/${currentRecipe.image}`}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null // prevents looping
+          currentTarget.src = breadWhite
+        }}
+        alt="recipe image"
+      />
       <div className="detail-text">
         <h2>{currentRecipe.title}</h2>
         <Link to=".." relative="path" className="recipe-back">
