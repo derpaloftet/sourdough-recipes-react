@@ -126,6 +126,7 @@ export default function Recipes() {
             image={item.image}
             difficulty={item.difficulty}
             duration={item.duration}
+            search={`?${searchParams.toString()}`}
           />
         )
       })}
@@ -142,7 +143,10 @@ export default function Recipes() {
   return (
     <main className="recipes">
       <h2 className="recipes-header">Recipes</h2>
-      <RecipesFilter handleChangeFilter={handleChangeFilter} />
+      <RecipesFilter
+        handleChangeFilter={handleChangeFilter}
+        searchParams={searchParams}
+      />
 
       {currentRecipes.length ? recipeElement : noRecipesElement}
 

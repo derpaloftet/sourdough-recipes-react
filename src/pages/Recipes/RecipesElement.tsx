@@ -8,17 +8,19 @@ export default function RecipesElement({
   image,
   difficulty,
   duration,
+  search,
 }: {
   id: string
   title: string
   image: string
   difficulty: Difficulty
   duration: number
+  search: string
 }) {
   return (
     <>
       <div key={id} className="recipe-card">
-        <NavLink to={id}>
+        <NavLink to={id} state={{ search: search }}>
           <img
             className="recipe-image"
             src={`/src/assets/recipes/${image}`}

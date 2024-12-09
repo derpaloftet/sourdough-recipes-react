@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, useLocation, useParams } from "react-router-dom"
 import breadWhite from "../../assets/bread-recipe3.jpg"
 import { nanoid } from "nanoid"
 import NotFound from "../NotFound.tsx"
@@ -12,6 +12,9 @@ export default function RecipeDetail() {
 
   const [currentRecipe, setCurrentRecipe] = useState({} as Recipe | null)
   const [loading, setLoading] = useState(true)
+
+  const location = useLocation()
+  const search = (location.state && location.state.search) || ""
 
   useEffect(() => {
     setLoading(true)
@@ -53,7 +56,7 @@ export default function RecipeDetail() {
       />
       <div className="detail-text">
         <h2>{currentRecipe.title}</h2>
-        <Link to=".." relative="path" className="recipe-back">
+        <Link to={`..${search}`} relative="path" className="recipe-back">
           &larr; <span>Back to all recipes</span>
         </Link>
         <div className="">
@@ -82,20 +85,3 @@ export default function RecipeDetail() {
     </div>
   )
 }
-/*
-  useEffect(() => {
-    console.log("RecipeDetail - useEffect")
-    getRecipeById(currentId).then((recipe) => {
-      setCurrentRecipe(recipe)
-    })
-  }, [currentId])
-
-  if (currentRecipe == null) {
-    console.log("loading")
-    return <div>Loading</div>
-  } else if (Object.keys(currentRecipe).length <= 0) {
-    console.log("notfound")
-    return <NotFound />
-  }
-
- */

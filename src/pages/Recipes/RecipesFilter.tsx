@@ -3,13 +3,15 @@ import type { FilterKey } from "../../assets/types.ts"
 
 export default function RecipesFilter({
   handleChangeFilter,
+  searchParams,
 }: {
   handleChangeFilter: (key: FilterKey, value?: string | number) => void
+  searchParams: URLSearchParams
 }) {
   const initialFilter = {
-    difficulty: "",
-    duration: "",
-    type: "",
+    difficulty: searchParams.get("difficulty") ?? "",
+    duration: searchParams.get("duration") ?? "",
+    type: searchParams.get("type") ?? "",
   }
   const [filter, setFilter] = useState<{
     difficulty: string
@@ -77,7 +79,11 @@ export default function RecipesFilter({
       <button
         className="filter-clear"
         onClick={() => {
-          setFilter(initialFilter)
+          setFilter({
+            difficulty: "",
+            duration: "",
+            type: "",
+          })
           handleChangeFilter("clear")
         }}
       >
