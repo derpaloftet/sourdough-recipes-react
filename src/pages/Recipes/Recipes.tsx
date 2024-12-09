@@ -47,19 +47,20 @@ export default function Recipes() {
   /* Filtering */
 
   function handleChangeFilter(key: FilterKey, value?: string | number) {
-    setSearchParams((prevParams) => {
-      const currentValue = prevParams.get(key)
-
+    setSearchParams((searchParams) => {
       if (key === "clear") {
-        prevParams.delete("difficulty")
-        prevParams.delete("duration")
-        prevParams.delete("type")
-      } else if (currentValue === String(value)) {
-        prevParams.delete(key)
+        // reset all selects
+        searchParams.delete("difficulty")
+        searchParams.delete("duration")
+        searchParams.delete("type")
+      } else if (value === "") {
+        // set empty select
+        searchParams.delete(key)
       } else {
-        prevParams.set(key, String(value))
+        // set new select value
+        searchParams.set(key, String(value))
       }
-      return prevParams
+      return searchParams
     })
     setCurrentPage(1)
   }

@@ -6,15 +6,16 @@ export default function RecipesFilter({
 }: {
   handleChangeFilter: (key: FilterKey, value?: string | number) => void
 }) {
+  const initialFilter = {
+    difficulty: "",
+    duration: "",
+    type: "",
+  }
   const [filter, setFilter] = useState<{
     difficulty: string
     duration: string
     type: string
-  }>({
-    difficulty: "",
-    duration: "",
-    type: "",
-  })
+  }>(initialFilter)
 
   return (
     <>
@@ -75,7 +76,10 @@ export default function RecipesFilter({
       </div>
       <button
         className="filter-clear"
-        onClick={() => handleChangeFilter("clear")}
+        onClick={() => {
+          setFilter(initialFilter)
+          handleChangeFilter("clear")
+        }}
       >
         Clear filters
       </button>
