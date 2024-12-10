@@ -9,6 +9,8 @@ export default function RecipesElement({
   difficulty,
   duration,
   search,
+  likeClick,
+  likedFavourites,
 }: {
   id: string
   title: string
@@ -16,6 +18,8 @@ export default function RecipesElement({
   difficulty: Difficulty
   duration: number
   search: string
+  likeClick: (id: string) => void
+  likedFavourites: string[]
 }) {
   return (
     <>
@@ -36,7 +40,12 @@ export default function RecipesElement({
           <div className="recipe-keyword">{difficulty}</div>
           <div className="recipe-keyword">{duration} minutes</div>
         </div>
-        <button className="btn-like">❤</button>
+        <button
+          className={`btn-like ${likedFavourites.includes(id) ? "btn-liked" : ""}`}
+          onClick={() => likeClick(id)}
+        >
+          ❤
+        </button>
         <NavLink to={id} className="recipe-btn">
           Go to Recipe Details
         </NavLink>

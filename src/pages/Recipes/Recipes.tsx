@@ -6,11 +6,20 @@ import RecipesElement from "./RecipesElement.tsx"
 import RecipesFilter from "./RecipesFilter.tsx"
 import { getRecipes } from "../../services/RecipesStorage.ts"
 
+const currentLikedFavourites = () => {
+  const localStorageValue = localStorage.getItem("likedRecipes")
+  return localStorageValue ? JSON.parse(localStorageValue) : []
+}
+
 export default function Recipes() {
   const [recipes, setRecipes] = useState([] as Recipe[] | null)
   const [loading, setLoading] = useState(true)
   const [searchParams, setSearchParams] = useSearchParams()
   const [currentPage, setCurrentPage] = useState(1)
+  const [likedFavourites, setLikedFavourites] = useState(currentLikedFavourites)
+  useEffect(() => {
+    localStorage.setItem("likedRecipes", JSON.stringify(likedFavourites))
+  }, [likedFavourites])
 
   useEffect(() => {
     setLoading(true)
@@ -93,6 +102,26 @@ export default function Recipes() {
     }
   }
 
+  /* Favourites */
+
+  function handleFavouritesClick() {
+    const favouriteRecipes =
+      recipes &&
+      recipes.filter((item) => {
+        return likedFavourites.includes(item.id)
+      })
+    setRecipes(favouriteRecipes)
+  }
+  function handleLikeClick(id: string) {
+    setLikedFavourites((prevState: string[]) => {
+      if (prevState.includes(id)) {
+        return prevState.filter((item) => item !== id)
+      } else {
+        return [...prevState, id]
+      }
+    })
+  }
+
   /* Pagination */
 
   const itemsPerPage = 8
@@ -127,6 +156,8 @@ export default function Recipes() {
             difficulty={item.difficulty}
             duration={item.duration}
             search={`?${searchParams.toString()}`}
+            likeClick={() => handleLikeClick(item.id)}
+            likedFavourites={likedFavourites}
           />
         )
       })}
@@ -142,6 +173,7 @@ export default function Recipes() {
 
   return (
     <main className="recipes">
+      <button onClick={handleFavouritesClick}>Favourites</button>
       <h2 className="recipes-header">Recipes</h2>
       <RecipesFilter
         handleChangeFilter={handleChangeFilter}
