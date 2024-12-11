@@ -6,7 +6,7 @@ import RecipesElement from "./RecipesElement.tsx"
 import RecipesFilter from "./RecipesFilter.tsx"
 import { getRecipes } from "../../services/RecipesStorage.ts"
 
-const currentLikedFavourites = () => {
+const currentLikedRecipes = () => {
   const localStorageValue = localStorage.getItem("likedRecipes")
   return localStorageValue ? JSON.parse(localStorageValue) : []
 }
@@ -16,10 +16,10 @@ export default function Recipes() {
   const [loading, setLoading] = useState(true)
   const [searchParams, setSearchParams] = useSearchParams()
   const [currentPage, setCurrentPage] = useState(1)
-  const [likedFavourites, setLikedFavourites] = useState(currentLikedFavourites)
+  const [likedRecipes, setLikedRecipes] = useState(currentLikedRecipes)
   useEffect(() => {
-    localStorage.setItem("likedRecipes", JSON.stringify(likedFavourites))
-  }, [likedFavourites])
+    localStorage.setItem("likedRecipes", JSON.stringify(likedRecipes))
+  }, [likedRecipes])
 
   useEffect(() => {
     setLoading(true)
@@ -108,12 +108,12 @@ export default function Recipes() {
     const favouriteRecipes =
       recipes &&
       recipes.filter((item) => {
-        return likedFavourites.includes(item.id)
+        return likedRecipes.includes(item.id)
       })
     setRecipes(favouriteRecipes)
   }
   function handleLikeClick(id: string) {
-    setLikedFavourites((prevState: string[]) => {
+    setLikedRecipes((prevState: string[]) => {
       if (prevState.includes(id)) {
         return prevState.filter((item) => item !== id)
       } else {
@@ -157,7 +157,7 @@ export default function Recipes() {
             duration={item.duration}
             search={`?${searchParams.toString()}`}
             likeClick={() => handleLikeClick(item.id)}
-            likedFavourites={likedFavourites}
+            likedRecipes={likedRecipes}
           />
         )
       })}
@@ -173,11 +173,11 @@ export default function Recipes() {
 
   return (
     <main className="recipes">
-      <button onClick={handleFavouritesClick}>Favourites</button>
       <h2 className="recipes-header">Recipes</h2>
       <RecipesFilter
         handleChangeFilter={handleChangeFilter}
         searchParams={searchParams}
+        handleFavouritesClick={handleFavouritesClick}
       />
 
       {currentRecipes.length ? recipeElement : noRecipesElement}

@@ -4,9 +4,11 @@ import type { FilterKey } from "../../assets/types.ts"
 export default function RecipesFilter({
   handleChangeFilter,
   searchParams,
+  handleFavouritesClick,
 }: {
   handleChangeFilter: (key: FilterKey, value?: string | number) => void
   searchParams: URLSearchParams
+  handleFavouritesClick: () => void
 }) {
   const initialFilter = {
     difficulty: searchParams.get("difficulty") ?? "",
@@ -76,19 +78,24 @@ export default function RecipesFilter({
           <option value="savoury">Savoury</option>
         </select>
       </div>
-      <button
-        className="filter-clear"
-        onClick={() => {
-          setFilter({
-            difficulty: "",
-            duration: "",
-            type: "",
-          })
-          handleChangeFilter("clear")
-        }}
-      >
-        Clear filters
-      </button>
+      <div className="side-filter">
+        <button className="liked-recipes-btn" onClick={handleFavouritesClick}>
+          Liked Recipes
+        </button>
+        <button
+          className="filter-clear"
+          onClick={() => {
+            setFilter({
+              difficulty: "",
+              duration: "",
+              type: "",
+            })
+            handleChangeFilter("clear")
+          }}
+        >
+          Clear filters
+        </button>
+      </div>
     </>
   )
 }
