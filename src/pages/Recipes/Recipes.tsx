@@ -14,6 +14,7 @@ const currentLikedRecipes = () => {
 export default function Recipes() {
   const [recipes, setRecipes] = useState([] as Recipe[] | null)
   const [loading, setLoading] = useState(true)
+  const [likedRecipesShown, setLikedRecipesShown] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
   const [currentPage, setCurrentPage] = useState(1)
   const [likedRecipes, setLikedRecipes] = useState(currentLikedRecipes)
@@ -103,15 +104,13 @@ export default function Recipes() {
   }
 
   /* Liked Recipes */
-
+  if (likedRecipesShown) {
+    filteredRecipes =
+      filteredRecipes.filter((item) => likedRecipes.includes(item.id)) || []
+  }
   function handleLikedRecipesClick() {
-    const filterLikedRecipes =
-      recipes &&
-      recipes.filter((item) => {
-        return likedRecipes.includes(item.id)
-      })
-    setRecipes(filterLikedRecipes)
     setCurrentPage(1)
+    setLikedRecipesShown((prevState: boolean) => !prevState)
   }
   function handleLikeClick(id: string) {
     setLikedRecipes((prevState: string[]) => {
@@ -124,7 +123,6 @@ export default function Recipes() {
   }
 
   /* Pagination */
-
   const itemsPerPage = 8
   const totalPages = Math.ceil(filteredRecipes.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
