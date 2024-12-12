@@ -102,15 +102,16 @@ export default function Recipes() {
     }
   }
 
-  /* Favourites */
+  /* Liked Recipes */
 
-  function handleFavouritesClick() {
-    const favouriteRecipes =
+  function handleLikedRecipesClick() {
+    const filterLikedRecipes =
       recipes &&
       recipes.filter((item) => {
         return likedRecipes.includes(item.id)
       })
-    setRecipes(favouriteRecipes)
+    setRecipes(filterLikedRecipes)
+    setCurrentPage(1)
   }
   function handleLikeClick(id: string) {
     setLikedRecipes((prevState: string[]) => {
@@ -177,7 +178,7 @@ export default function Recipes() {
       <RecipesFilter
         handleChangeFilter={handleChangeFilter}
         searchParams={searchParams}
-        handleFavouritesClick={handleFavouritesClick}
+        handleLikedRecipesClick={handleLikedRecipesClick}
       />
 
       {currentRecipes.length ? recipeElement : noRecipesElement}

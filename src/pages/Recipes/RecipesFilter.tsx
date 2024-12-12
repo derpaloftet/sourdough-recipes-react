@@ -4,11 +4,11 @@ import type { FilterKey } from "../../assets/types.ts"
 export default function RecipesFilter({
   handleChangeFilter,
   searchParams,
-  handleFavouritesClick,
+  handleLikedRecipesClick,
 }: {
   handleChangeFilter: (key: FilterKey, value?: string | number) => void
   searchParams: URLSearchParams
-  handleFavouritesClick: () => void
+  handleLikedRecipesClick: () => void
 }) {
   const initialFilter = {
     difficulty: searchParams.get("difficulty") ?? "",
@@ -79,7 +79,7 @@ export default function RecipesFilter({
         </select>
       </div>
       <div className="side-filter">
-        <button className="liked-recipes-btn" onClick={handleFavouritesClick}>
+        <button className="liked-recipes-btn" onClick={handleLikedRecipesClick}>
           Liked Recipes
         </button>
         <button
