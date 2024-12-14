@@ -830,6 +830,17 @@ body {
   padding: 5px;
 }
 
+.filter-clear {
+  font-weight: 400;
+  font-size: 0.8rem;
+  text-shadow: 1px 1px 5px rgb(124, 120, 115);
+}
+
+.filter-clear:hover {
+  color: dimgrey;
+  text-shadow: 1px 1px 5px rgb(124, 120, 115);
+}
+
 .side-filter {
   display: flex;
   justify-content: end;
@@ -875,17 +886,6 @@ body {
 
 .liked-recipes-btn {
   background-color: indianred;
-}
-
-.filter-clear {
-  font-weight: 400;
-  font-size: 0.8rem;
-  text-shadow: 1px 1px 5px rgb(124, 120, 115);
-}
-
-.filter-clear:hover {
-  color: dimgrey;
-  text-shadow: 1px 1px 5px rgb(124, 120, 115);
 }
 
 /* Recipe Cards */
@@ -1315,14 +1315,9 @@ footer {
   }
 
   .recipes-filter select {
-    font-size: .9rem;
+    font-size: .7rem;
     padding: .5rem;
-    width: 30%;
-  }
-
-  .liked-recipes-btn {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    width: 20%;
   }
 
   .filter-clear {
@@ -1383,7 +1378,11 @@ footer {
 
   .recipes-filter select {
     font-size: .9rem;
-    width: 20%;
+  }
+
+  .liked-recipes-btn {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   .filter-clear {

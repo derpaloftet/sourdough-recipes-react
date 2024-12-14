@@ -21,6 +21,23 @@ export default function RecipesFilter({
     type: string
   }>(initialFilter)
 
+  const filterClearBtn = (
+    <button
+      className="filter-clear"
+      onClick={() => {
+        setFilter({
+          difficulty: "",
+          duration: "",
+          type: "",
+        })
+        handleChangeFilter("clear")
+      }}
+    >
+      Clear filters
+    </button>
+  )
+  console.log(searchParams)
+
   return (
     <>
       <div className="recipes-filter">
@@ -77,23 +94,11 @@ export default function RecipesFilter({
           <option value="sweet">Sweet</option>
           <option value="savoury">Savoury</option>
         </select>
+        {searchParams.size ? filterClearBtn : ""}
       </div>
       <div className="side-filter">
         <button className="liked-recipes-btn" onClick={handleLikedRecipesClick}>
           Liked Recipes
-        </button>
-        <button
-          className="filter-clear"
-          onClick={() => {
-            setFilter({
-              difficulty: "",
-              duration: "",
-              type: "",
-            })
-            handleChangeFilter("clear")
-          }}
-        >
-          Clear filters
         </button>
       </div>
     </>
