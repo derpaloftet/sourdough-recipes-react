@@ -20,12 +20,7 @@ export default function RecipeDetail() {
     setLoading(true)
     getRecipeById(currentId)
       .then((recipe) => {
-        if (recipe) {
-          console.dir(recipe)
-          setCurrentRecipe(recipe)
-        } else {
-          setCurrentRecipe(null)
-        }
+        setCurrentRecipe(recipe ? recipe : null)
       })
       .catch((error) => {
         console.error("It was not possible to fetch this recipe by id:", error)
@@ -59,7 +54,7 @@ export default function RecipeDetail() {
         <Link to={`..${search}`} relative="path" className="recipe-back">
           &larr; <span>Back to all recipes</span>
         </Link>
-        <div className="">
+        <div>
           <span className="detail">Difficulty: </span>
           {currentRecipe.difficulty}
         </div>

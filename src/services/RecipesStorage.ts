@@ -23,19 +23,19 @@ export const getRecipes = async () => {
 
 export const getRecipeById = async (id: string): Promise<Recipe | null> => {
   const result = await getDoc(doc(db, collectionName, id))
-  if (result.exists()) {
-    const data = result.data()
-    return {
-      id: result.id,
-      title: data.title,
-      ingredients: data.ingredients,
-      image: data.image,
-      instructions: data.instructions,
-      difficulty: data.difficulty,
-      duration: data.duration,
-    }
+  if (!result.exists()) {
+    return null
   }
-  return null
+  const data = result.data()
+  return {
+    id: result.id,
+    title: data.title,
+    ingredients: data.ingredients,
+    image: data.image,
+    instructions: data.instructions,
+    difficulty: data.difficulty,
+    duration: data.duration,
+  }
 }
 
 export const addRecipe = async (recipe: RecipeRequest) => {

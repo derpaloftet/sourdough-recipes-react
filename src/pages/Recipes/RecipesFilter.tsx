@@ -15,11 +15,7 @@ export default function RecipesFilter({
     duration: searchParams.get("duration") ?? "",
     type: searchParams.get("type") ?? "",
   }
-  const [filter, setFilter] = useState<{
-    difficulty: string
-    duration: string
-    type: string
-  }>(initialFilter)
+  const [filter, setFilter] = useState(initialFilter)
 
   const filterClearBtn = (
     <button
@@ -36,7 +32,6 @@ export default function RecipesFilter({
       Clear filters
     </button>
   )
-  console.log(searchParams)
 
   return (
     <>
@@ -46,12 +41,10 @@ export default function RecipesFilter({
           value={filter.difficulty}
           onChange={(event) => {
             handleChangeFilter("difficulty", event.target.value)
-            setFilter((prevState) => {
-              return {
-                ...prevState,
-                difficulty: event.target.value,
-              }
-            })
+            setFilter((prevState) => ({
+              ...prevState,
+              difficulty: event.target.value,
+            }))
           }}
         >
           <option value="">Select Difficulty</option>
@@ -64,12 +57,10 @@ export default function RecipesFilter({
           value={filter.duration}
           onChange={(event) => {
             handleChangeFilter("duration", event.target.value)
-            setFilter((prevState) => {
-              return {
-                ...prevState,
-                duration: event.target.value,
-              }
-            })
+            setFilter((prevState) => ({
+              ...prevState,
+              duration: event.target.value,
+            }))
           }}
         >
           <option value="">Select Max Duration</option>
@@ -82,12 +73,10 @@ export default function RecipesFilter({
           value={filter.type}
           onChange={(event) => {
             handleChangeFilter("type", event.target.value)
-            setFilter((prevState) => {
-              return {
-                ...prevState,
-                type: event.target.value,
-              }
-            })
+            setFilter((prevState) => ({
+              ...prevState,
+              type: event.target.value,
+            }))
           }}
         >
           <option value="">Select Type</option>

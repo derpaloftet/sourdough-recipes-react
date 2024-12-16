@@ -11,12 +11,14 @@ export default function AddRecipe() {
     difficulty: Difficulty.Easy,
     duration: 0,
   }
-  const [currentIngredient, setCurrentIngredient] = useState<Ingredient>({
+  const initialIngredient: Ingredient = {
     name: "",
     quantity: "",
-  })
+  }
+  const [currentIngredient, setCurrentIngredient] =
+    useState<Ingredient>(initialIngredient)
   const [formData, setFormData] = useState<RecipeRequest>(initialFormState)
-  const [disabledSubmitBtn, setDisabledSubmitBtn] = useState(false)
+  const [enabledSubmitBtn, setEnabledSubmitBtn] = useState(true)
   const [submitted, setSubmitted] = useState(false)
   const [formError, setFormError] = useState<string[]>([])
 
@@ -25,19 +27,9 @@ export default function AddRecipe() {
   ) {
     const { name, value } = e.target
     if (name === "name" || name === "quantity") {
-      setCurrentIngredient((prevState) => {
-        return {
-          ...prevState,
-          [name]: value,
-        }
-      })
+      setCurrentIngredient((prevState) => ({ ...prevState, [name]: value }))
     } else {
-      setFormData((prevState) => {
-        return {
-          ...prevState,
-          [name]: value,
-        }
-      })
+      setFormData((prevState) => ({ ...prevState, [name]: value }))
     }
   }
 
@@ -50,7 +42,7 @@ export default function AddRecipe() {
           ingredients: [...prevState.ingredients, currentIngredient],
         }
       })
-      setCurrentIngredient({ name: "", quantity: "" })
+      setCurrentIngredient(initialIngredient)
     }
   }
 
@@ -88,9 +80,9 @@ export default function AddRecipe() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setDisabledSubmitBtn(true)
+    setEnabledSubmitBtn(true)
     setTimeout(() => {
-      setDisabledSubmitBtn(false)
+      setEnabledSubmitBtn(false)
     }, 3000)
 
     /* Form Validation */
@@ -106,6 +98,7 @@ export default function AddRecipe() {
       }, 7000)
     }
   }
+
   return (
     <main className="add-recipe">
       <h1 className="recipes-header">Add your Recipe</h1>
@@ -213,9 +206,9 @@ export default function AddRecipe() {
         </div>
       </form>
       <button
-        className={disabledSubmitBtn ? "disabled" : "add-recipe-btn"}
+        className={enabledSubmitBtn ? "add-recipe-btn" : "disabled"}
+        disabled={!enabledSubmitBtn}
         onClick={handleSubmit}
-        disabled={disabledSubmitBtn && true}
       >
         Add Recipe
       </button>

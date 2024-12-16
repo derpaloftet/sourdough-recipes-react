@@ -23,7 +23,7 @@ export default function RecipesElement({
 }) {
   return (
     <>
-      <div key={id} className="recipe-card">
+      <main key={id} className="recipe-card">
         <NavLink to={id} state={{ search: search }}>
           <img
             className="recipe-image"
@@ -46,10 +46,10 @@ export default function RecipesElement({
         >
           ❤
         </button>
-        <NavLink to={id} className="recipe-btn">
+        <NavLink to={id} state={{ search: search }} className="recipe-btn">
           Go to Recipe Details
         </NavLink>
-      </div>
+      </main>
     </>
   )
 }

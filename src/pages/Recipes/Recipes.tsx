@@ -6,18 +6,19 @@ import RecipesElement from "./RecipesElement.tsx"
 import RecipesFilter from "./RecipesFilter.tsx"
 import { getRecipes } from "../../services/RecipesStorage.ts"
 
-const currentLikedRecipes = () => {
+const currentLikedRecipes = (): string[] => {
   const localStorageValue = localStorage.getItem("likedRecipes")
   return localStorageValue ? JSON.parse(localStorageValue) : []
 }
 
 export default function Recipes() {
   const [recipes, setRecipes] = useState([] as Recipe[] | null)
-  const [loading, setLoading] = useState(true)
+  const [likedRecipes, setLikedRecipes] = useState(currentLikedRecipes)
   const [likedRecipesShown, setLikedRecipesShown] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [searchParams, setSearchParams] = useSearchParams()
   const [currentPage, setCurrentPage] = useState(1)
-  const [likedRecipes, setLikedRecipes] = useState(currentLikedRecipes)
+
   useEffect(() => {
     localStorage.setItem("likedRecipes", JSON.stringify(likedRecipes))
   }, [likedRecipes])
@@ -26,11 +27,7 @@ export default function Recipes() {
     setLoading(true)
     getRecipes()
       .then((recipes) => {
-        if (recipes) {
-          setRecipes(recipes)
-        } else {
-          setRecipes(null)
-        }
+        setRecipes(recipes ? recipes : null)
       })
       .catch((error) => {
         console.error("It was not possible to fetch the recipes", error)
@@ -49,32 +46,11 @@ export default function Recipes() {
   }
 
   /* Search params */
-
   const difficultyFilter = searchParams.get("difficulty")
   const durationFilter = Number(searchParams.get("duration"))
   const typeFilter = searchParams.get("type")
 
   /* Filtering */
-
-  function handleChangeFilter(key: FilterKey, value?: string | number) {
-    setSearchParams((searchParams) => {
-      if (key === "clear") {
-        // reset all selects
-        searchParams.delete("difficulty")
-        searchParams.delete("duration")
-        searchParams.delete("type")
-      } else if (value === "") {
-        // set empty select
-        searchParams.delete(key)
-      } else {
-        // set new select value
-        searchParams.set(key, String(value))
-      }
-      return searchParams
-    })
-    setCurrentPage(1)
-  }
-
   let filteredRecipes = recipes
   if (difficultyFilter) {
     filteredRecipes = filteredRecipes.filter(
@@ -102,11 +78,28 @@ export default function Recipes() {
       })
     }
   }
-
-  /* Liked Recipes */
   if (likedRecipesShown) {
     filteredRecipes =
       filteredRecipes.filter((item) => likedRecipes.includes(item.id)) || []
+  }
+
+  function handleChangeFilter(key: FilterKey, value?: string | number) {
+    setSearchParams((searchParams) => {
+      if (key === "clear") {
+        // reset all selects
+        searchParams.delete("difficulty")
+        searchParams.delete("duration")
+        searchParams.delete("type")
+      } else if (value === "") {
+        // set empty select
+        searchParams.delete(key)
+      } else {
+        // set new select value
+        searchParams.set(key, String(value))
+      }
+      return searchParams
+    })
+    setCurrentPage(1)
   }
   function handleLikedRecipesClick() {
     setCurrentPage(1)
@@ -115,8 +108,10 @@ export default function Recipes() {
   function handleLikeClick(id: string) {
     setLikedRecipes((prevState: string[]) => {
       if (prevState.includes(id)) {
+        // recipe exists in likes, so we delete it from liked recipes
         return prevState.filter((item) => item !== id)
       } else {
+        // recipe doesn't exist in likes, so we add it to liked recipes
         return [...prevState, id]
       }
     })
@@ -143,7 +138,7 @@ export default function Recipes() {
     }
   }
 
-  const recipeElement = (
+  const recipesElement = (
     <div className="recipes-layout">
       {currentRecipes.map((item) => {
         return (
@@ -179,7 +174,7 @@ export default function Recipes() {
         handleLikedRecipesClick={handleLikedRecipesClick}
       />
 
-      {currentRecipes.length ? recipeElement : noRecipesElement}
+      {currentRecipes.length ? recipesElement : noRecipesElement}
 
       <div className="recipes-pages">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
