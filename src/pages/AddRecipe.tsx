@@ -46,7 +46,7 @@ export default function AddRecipe() {
     }
   }
 
-  function validateForm() {
+  function validateForm(): boolean {
     setFormError([])
     let hasErrors = false
     if (!formData.title.trim()) {

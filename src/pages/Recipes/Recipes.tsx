@@ -16,17 +16,18 @@ export default function Recipes() {
   const [likedRecipes, setLikedRecipes] = useState(currentLikedRecipes)
   const [likedRecipesShown, setLikedRecipesShown] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [searchParams, setSearchParams] = useSearchParams()
   const [currentPage, setCurrentPage] = useState(1)
+  const [searchParams, setSearchParams] = useSearchParams()
 
   useEffect(() => {
     localStorage.setItem("likedRecipes", JSON.stringify(likedRecipes))
   }, [likedRecipes])
+  console.log("Liked" + likedRecipes)
 
   useEffect(() => {
     setLoading(true)
     getRecipes()
-      .then((recipes) => {
+      .then((recipes: Recipe[]) => {
         setRecipes(recipes ? recipes : null)
       })
       .catch((error) => {

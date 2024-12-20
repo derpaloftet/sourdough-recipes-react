@@ -4,7 +4,7 @@ import { Recipe, RecipeRequest } from "../assets/types.ts"
 
 const collectionName = "Recipe"
 
-export const getRecipes = async () => {
+export const getRecipes = async (): Promise<Recipe[]> => {
   const recipesCollection = collection(db, collectionName)
   const result = await getDocs(recipesCollection)
   return result.docs.map((doc) => {
@@ -38,7 +38,7 @@ export const getRecipeById = async (id: string): Promise<Recipe | null> => {
   }
 }
 
-export const addRecipe = async (recipe: RecipeRequest) => {
+export const addRecipe = async (recipe: RecipeRequest): Promise<string> => {
   const docRef = await addDoc(collection(db, collectionName), recipe)
   return docRef.id
 }
