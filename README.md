@@ -2,7 +2,7 @@
 
 ## What is The World of Sourdough?
 
-Welcome to The World of Sourdough, your ultimate destination for exploring the art of sourdough baking!
+Welcome to The World of Sourdough, your destination for exploring the art of sourdough baking!
 
 It features:
 - **Home Page**: Discover the benefits of sourdough and why it's a healthy and flavorful choice for your baking needs.
