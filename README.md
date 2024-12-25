@@ -24,8 +24,8 @@ npx tailwindcss -i ./src/App.css -o ./src/output.css --watch
 ## Technical Overview
 
 The World of Sourdough is built using **React** and **TypeScript**.
-
 Core Features:
+
 **React Router**:
 - Persistent Navbar and Footer with route-based content changes using `Outlet`.
 - Dynamic route parameters (recipes/:id).
