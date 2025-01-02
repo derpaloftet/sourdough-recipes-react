@@ -22,7 +22,6 @@ export default function Recipes() {
   useEffect(() => {
     localStorage.setItem("likedRecipes", JSON.stringify(likedRecipes))
   }, [likedRecipes])
-  console.log("Liked" + likedRecipes)
 
   useEffect(() => {
     setLoading(true)

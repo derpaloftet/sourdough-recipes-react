@@ -1,6 +1,6 @@
 # The World of Sourdough
 
-## What is The World of Sourdough?
+## What is The World of Sourdough
 
 Welcome to The World of Sourdough, your destination for exploring the art of sourdough baking!
 
@@ -10,13 +10,13 @@ It features:
 - **Recipe Details Page**: Dive into detailed instructions with a list of ingredients and clear step-by-step directions.
 - **Add Recipe Page**: Submit your favorite sourdough recipes using our easy-to-use form.
 
-## How to start this project locally?
-Start Vite server with React application
+## How to start locally
+Start the Vite development server:
 ```shell
 npm run dev
 ```
 
-Start Tailwind in watch mode in another terminal tab
+In a separate terminal tab, start Tailwind CSS in watch mode:
 ```shell
 npx tailwindcss -i ./src/App.css -o ./src/output.css --watch
 ```
@@ -38,7 +38,7 @@ Core Features:
 
 **State Management and Hooks**:
 - `useState`: Manages state for recipes, likes, pagination, and loading indicators.
-- `useEffect`: Handles data fetching and localStorage updates.
+- `useEffect`: Handles data fetching for recipes on rerender and localStorage updates for likedRecipes whenever likedRecipes state changes.
 - `useSearchParams`: Manages URL query parameters for filtering recipes.
 - `useParams`: Extracts route parameters (e.g., recipe id).
 - `useLocation`: Retrieves route state for navigation and search persistence that are used for the "back" button.
@@ -55,6 +55,11 @@ Core Features:
 - .env for environment variables (Firebase keys).
 - Functions for CRUD operations: `getRecipes()`, `getRecipeById()`, `addRecipe()`.
 - Script to import recipes into Firestore.
+
+**Visual Design**:
+
+- Designed with a **mobile-first approach**, ensuring it works seamlessly on smaller screens and scales up for larger devices.
+- Most Buttons and Navbar are styled with **Tailwind CSS** using utility classes and the @apply directive for efficiency.
 
 **Developer Tools**:
 - Git Hook with Husky: Pre-commit linting for consistent code quality.
