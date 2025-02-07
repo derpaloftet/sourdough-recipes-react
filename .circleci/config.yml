@@ -13,6 +13,8 @@ jobs:
       - run:
           command: npm install
       - run:
+          command: npm run lint
+      - run:
           command: npm run build
 
 workflows:
