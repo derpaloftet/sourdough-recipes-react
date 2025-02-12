@@ -25,11 +25,14 @@ export default function AddRecipe() {
   function handleOnChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
-    const { name, value } = e.target
+    const { name, value, type } = e.target
     if (name === "name" || name === "quantity") {
       setCurrentIngredient((prevState) => ({ ...prevState, [name]: value }))
     } else {
-      setFormData((prevState) => ({ ...prevState, [name]: value }))
+      setFormData((prevState) => ({
+        ...prevState,
+        [name]: type === "number" ? parseInt(value) : value,
+      }))
     }
   }
 
@@ -154,7 +157,7 @@ export default function AddRecipe() {
             placeholder="Ex: 300"
             name="duration"
             id="duration"
-            value={formData.duration || ""}
+            value={formData.duration || 0}
             onChange={handleOnChange}
           />
         </div>
