@@ -1,4 +1,3 @@
-// or ESM/TypeScript import
 import Ajv from "ajv"
 import { Recipe } from "../assets/types.ts"
 
