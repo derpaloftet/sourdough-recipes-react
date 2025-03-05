@@ -7,7 +7,7 @@ describe("NotFound", () => {
   it("should render properly", () => {
     render(<NotFound />, { wrapper: BrowserRouter })
 
-    const notFoundElement = screen.getByTestId("not-found")
+    const notFoundElement = screen.getByTestId("not-found-header")
     expect(notFoundElement.textContent).toContain("not found")
   })
 })

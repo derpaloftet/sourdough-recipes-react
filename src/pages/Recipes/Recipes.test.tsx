@@ -27,7 +27,7 @@ describe("Recipes", () => {
 
     render(<Recipes />, { wrapper: BrowserRouter })
 
-    const recipesPageElement = await screen.findByTestId("recipes-page")
+    const recipesPageElement = await screen.findByTestId("recipes-page-header")
     expect(recipesPageElement.textContent).toContain("Recipes")
     expect(getRecipesMock).toHaveBeenCalledTimes(1)
   })

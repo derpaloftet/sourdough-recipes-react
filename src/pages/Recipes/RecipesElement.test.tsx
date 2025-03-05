@@ -24,7 +24,6 @@ describe("RecipesElement", () => {
   })
 
   it("should call like event handler on button click", async () => {
-    // Arrange
     const onClick = vi.fn()
     const id = "G9niELZ5u4HZc62ul5PX"
     render(
@@ -42,16 +41,13 @@ describe("RecipesElement", () => {
     )
     const button = screen.getByTestId("button-favourite")
 
-    // Act
     await userEvent.click(button)
 
-    // Assert
     expect(onClick).toBeCalledTimes(1)
     expect(onClick).toBeCalledWith(id)
   })
 
   it("should add liked class when recipe's id is in liked recipes", () => {
-    // Arrange
     const id = "G9niELZ5u4HZc62ul5PX"
     render(
       <RecipesElement
@@ -68,7 +64,6 @@ describe("RecipesElement", () => {
     )
     const button = screen.getByTestId("button-favourite")
 
-    // Assert
     expect(button.classList.contains("btn-liked")).toEqual(true)
   })
 })

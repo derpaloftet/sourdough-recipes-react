@@ -4,7 +4,6 @@ import { expect } from "vitest"
 
 describe("Validator", () => {
   it("should validate successfully", () => {
-    // Arrange
     const recipe = {
       id: "G9niELZ5u4HZc62ul5PX",
       title: "Sourdough Lemon Pancakes",
@@ -20,15 +19,12 @@ describe("Validator", () => {
       duration: 34,
     } as Recipe
 
-    // Act
     const result = validateRecipe(recipe)
 
-    // Assert
     expect(result).toEqual(true)
   })
 
   it("should not validate successfully", () => {
-    // Arrange
     const recipe = {
       id: "G9niELZ5u4HZc62ul5PX",
       title: "Sourdough Lemon Pancakes",
@@ -40,10 +36,8 @@ describe("Validator", () => {
       duration: 34,
     } as Recipe
 
-    // Act
     const result = validateRecipe(recipe)
 
-    // Assert
     expect(result).toEqual(false)
   })
 })
