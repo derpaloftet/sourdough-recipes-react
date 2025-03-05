@@ -41,6 +41,7 @@ export default function RecipesElement({
           <div className="recipe-keyword">{duration} minutes</div>
         </div>
         <button
+          data-testid="button-favourite"
           className={`btn-like ${likedRecipes.includes(id) ? "btn-liked" : ""}`}
           onClick={() => likeClick(id)}
         >

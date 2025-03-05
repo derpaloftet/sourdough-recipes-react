@@ -167,7 +167,9 @@ export default function Recipes() {
 
   return (
     <main className="recipes">
-      <h2 className="recipes-header">Recipes</h2>
+      <h2 data-testid="recipes-page-header" className="recipes-header">
+        Recipes
+      </h2>
       <RecipesFilter
         handleChangeFilter={handleChangeFilter}
         searchParams={searchParams}

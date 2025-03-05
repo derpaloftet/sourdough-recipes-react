@@ -9,7 +9,7 @@ export default function Home() {
       <section className="home-intro">
         <img className="home-img" src={breadTowel} alt="The image of bread" />
         <div className="section-text">
-          <h2>What is Sourdough?</h2>
+          <h2 data-testid="home-header">What is Sourdough?</h2>
           <p>
             Sourdough is a type of bread made using a natural fermentation
             process that involves wild yeast and lactic acid bacteria. Unlike
