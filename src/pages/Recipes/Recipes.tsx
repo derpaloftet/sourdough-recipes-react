@@ -27,6 +27,7 @@ export default function Recipes() {
     setLoading(true)
     getRecipes()
       .then((recipes: Recipe[]) => {
+        console.log(recipes.length)
         setRecipes(recipes ? recipes : null)
       })
       .catch((error) => {
@@ -167,7 +168,9 @@ export default function Recipes() {
 
   return (
     <main className="recipes">
-      <h2 className="recipes-header">Recipes</h2>
+      <h2 data-testid="recipes-page" className="recipes-header">
+        Recipes
+      </h2>
       <RecipesFilter
         handleChangeFilter={handleChangeFilter}
         searchParams={searchParams}

@@ -104,7 +104,9 @@ export default function AddRecipe() {
 
   return (
     <main className="add-recipe">
-      <h1 className="recipes-header">Add your Recipe</h1>
+      <h1 className="recipes-header" data-testid="add-recipe-header">
+        Add your Recipe
+      </h1>
       <form className="add-recipe-form">
         <div className="form-group">
           <label htmlFor="title">Title:</label>
