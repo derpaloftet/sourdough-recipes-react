@@ -2,7 +2,7 @@ import type { FilterKey, Recipe } from "../../assets/types.ts"
 import sadBread from "../../assets/sad_bread.png"
 import { useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import RecipesElement from "./RecipesElement.tsx"
+import RecipesCard from "./RecipesCard.tsx"
 import RecipesFilter from "./RecipesFilter.tsx"
 import { getRecipes } from "../../services/RecipesStorage.ts"
 
@@ -14,7 +14,7 @@ const currentLikedRecipes = (): string[] => {
 export default function Recipes() {
   const [recipes, setRecipes] = useState([] as Recipe[] | null)
   const [likedRecipes, setLikedRecipes] = useState(currentLikedRecipes)
-  const [likedRecipesShown, setLikedRecipesShown] = useState(false)
+  const [onlyLikedRecipesShown, setOnlyLikedRecipesShown] = useState(false)
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const [searchParams, setSearchParams] = useSearchParams()
@@ -27,7 +27,7 @@ export default function Recipes() {
     setLoading(true)
     getRecipes()
       .then((recipes: Recipe[]) => {
-        setRecipes(recipes ? recipes : null)
+        setRecipes(recipes || null)
       })
       .catch((error) => {
         console.error("It was not possible to fetch the recipes", error)
@@ -78,7 +78,7 @@ export default function Recipes() {
       })
     }
   }
-  if (likedRecipesShown) {
+  if (onlyLikedRecipesShown) {
     filteredRecipes =
       filteredRecipes.filter((item) => likedRecipes.includes(item.id)) || []
   }
@@ -103,7 +103,7 @@ export default function Recipes() {
   }
   function handleLikedRecipesClick() {
     setCurrentPage(1)
-    setLikedRecipesShown((prevState: boolean) => !prevState)
+    setOnlyLikedRecipesShown((prevState: boolean) => !prevState)
   }
   function handleLikeClick(id: string) {
     setLikedRecipes((prevState: string[]) => {
@@ -142,7 +142,7 @@ export default function Recipes() {
     <div className="recipes-layout">
       {currentRecipes.map((item) => {
         return (
-          <RecipesElement
+          <RecipesCard
             key={item.id}
             id={item.id}
             title={item.title}

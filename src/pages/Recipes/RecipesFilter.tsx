@@ -1,4 +1,3 @@
-import { useState } from "react"
 import type { FilterKey } from "../../assets/types.ts"
 
 export default function RecipesFilter({
@@ -10,22 +9,16 @@ export default function RecipesFilter({
   searchParams: URLSearchParams
   handleLikedRecipesClick: () => void
 }) {
-  const initialFilter = {
+  const filter = {
     difficulty: searchParams.get("difficulty") ?? "",
     duration: searchParams.get("duration") ?? "",
     type: searchParams.get("type") ?? "",
   }
-  const [filter, setFilter] = useState(initialFilter)
 
   const filterClearBtn = (
     <button
       className="filter-clear"
       onClick={() => {
-        setFilter({
-          difficulty: "",
-          duration: "",
-          type: "",
-        })
         handleChangeFilter("clear")
       }}
     >
@@ -41,10 +34,6 @@ export default function RecipesFilter({
           value={filter.difficulty}
           onChange={(event) => {
             handleChangeFilter("difficulty", event.target.value)
-            setFilter((prevState) => ({
-              ...prevState,
-              difficulty: event.target.value,
-            }))
           }}
         >
           <option value="">Select Difficulty</option>
@@ -57,10 +46,6 @@ export default function RecipesFilter({
           value={filter.duration}
           onChange={(event) => {
             handleChangeFilter("duration", event.target.value)
-            setFilter((prevState) => ({
-              ...prevState,
-              duration: event.target.value,
-            }))
           }}
         >
           <option value="">Select Max Duration</option>
@@ -73,10 +58,6 @@ export default function RecipesFilter({
           value={filter.type}
           onChange={(event) => {
             handleChangeFilter("type", event.target.value)
-            setFilter((prevState) => ({
-              ...prevState,
-              type: event.target.value,
-            }))
           }}
         >
           <option value="">Select Type</option>

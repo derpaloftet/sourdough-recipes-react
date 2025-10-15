@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import breadWhite from "../../assets/bread-recipe3.jpg"
 import type { Difficulty } from "../../assets/types.ts"
 
-export default function RecipesElement({
+export default function RecipesCard({
   id,
   title,
   image,
@@ -29,8 +29,8 @@ export default function RecipesElement({
             className="recipe-image"
             src={`/src/assets/recipes/${image}`}
             onError={({ currentTarget }) => {
-              currentTarget.onerror = null // prevents looping
-              currentTarget.src = breadWhite
+              currentTarget.onerror = null // prevents error looping
+              currentTarget.src = breadWhite // use fallback image
             }}
             alt="image of the recipe"
           />
