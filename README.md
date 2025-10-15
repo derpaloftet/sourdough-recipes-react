@@ -34,7 +34,7 @@ Core Features:
 
 **Main Components**:
 - Container Components: [Recipes](./src/pages/Recipes/Recipes.tsx) for handling state, logic, and data fetching, delegating UI to child components. [RecipeDetail](./src/pages/Recipes/RecipeDetail.tsx) for managing state and fetching data, also rendering UI directly.
-- Presentational Components: [RecipesElement](./src/pages/Recipes/RecipesElement.tsx) and [RecipesFilter](./src/pages/Recipes/RecipesFilter.tsx) for focused UI rendering.
+- Presentational Components: [RecipesElement](src/pages/Recipes/RecipesCard.tsx) and [RecipesFilter](./src/pages/Recipes/RecipesFilter.tsx) for focused UI rendering.
 
 **State Management and Hooks**:
 - `useState`: Manages state for recipes, likes, pagination, and loading indicators.
@@ -63,6 +63,14 @@ Core Features:
 
 **Developer Tools**:
 - Git Hook with Husky: Pre-commit linting for consistent code quality.
+
+**Testing with Vitest and React Testing Library**:
+- Unit Tests for all pages check that they are rendered and work correctly.
+
+**Deployment & CI/CD**:
+- **Continuous Integration**: Set up with CircleCI for automated testing and builds on every commit.
+- **Deployment**: Automatically deployed to Netlify on successful builds.
+
 
 ---
 

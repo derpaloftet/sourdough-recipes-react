@@ -20,7 +20,7 @@ export default function RecipeDetail() {
     setLoading(true)
     getRecipeById(currentId)
       .then((recipe) => {
-        setCurrentRecipe(recipe ? recipe : null)
+        setCurrentRecipe(recipe || null)
       })
       .catch((error) => {
         console.error("It was not possible to fetch this recipe by id:", error)

@@ -18,22 +18,24 @@ export default function AddRecipe() {
   const [currentIngredient, setCurrentIngredient] =
     useState<Ingredient>(initialIngredient)
   const [formData, setFormData] = useState<RecipeRequest>(initialFormState)
-  const [enabledSubmitBtn, setEnabledSubmitBtn] = useState(true)
   const [submitted, setSubmitted] = useState(false)
   const [formError, setFormError] = useState<string[]>([])
 
-  function handleOnChange(
+  function handleOnChangeIngredient(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
+    const { name, value } = e.target
+    setCurrentIngredient((prevState) => ({ ...prevState, [name]: value }))
+  }
+
+  function handleOnChangeFormData(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     const { name, value, type } = e.target
-    if (name === "name" || name === "quantity") {
-      setCurrentIngredient((prevState) => ({ ...prevState, [name]: value }))
-    } else {
-      setFormData((prevState) => ({
-        ...prevState,
-        [name]: type === "number" ? parseInt(value) : value,
-      }))
-    }
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: type === "number" ? parseInt(value) : value,
+    }))
   }
 
   function addIngredients(e: React.FormEvent) {
@@ -83,10 +85,6 @@ export default function AddRecipe() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setEnabledSubmitBtn(true)
-    setTimeout(() => {
-      setEnabledSubmitBtn(false)
-    }, 3000)
 
     /* Form Validation */
     const formHasErrors = validateForm()
@@ -116,7 +114,7 @@ export default function AddRecipe() {
             name="title"
             id="title"
             value={formData.title}
-            onChange={handleOnChange}
+            onChange={handleOnChangeFormData}
           />
         </div>
         <div className="form-group">
@@ -128,7 +126,7 @@ export default function AddRecipe() {
               id="easy"
               value={Difficulty.Easy}
               checked={formData.difficulty === Difficulty.Easy}
-              onChange={handleOnChange}
+              onChange={handleOnChangeFormData}
             />
             <label htmlFor="easy">Easy</label>
             <input
@@ -137,7 +135,7 @@ export default function AddRecipe() {
               id="medium"
               value={Difficulty.Medium}
               checked={formData.difficulty === Difficulty.Medium}
-              onChange={handleOnChange}
+              onChange={handleOnChangeFormData}
             />
             <label htmlFor="medium">Medium</label>
             <input
@@ -146,7 +144,7 @@ export default function AddRecipe() {
               id="hard"
               value={Difficulty.Hard}
               checked={formData.difficulty === Difficulty.Hard}
-              onChange={handleOnChange}
+              onChange={handleOnChangeFormData}
             />
             <label htmlFor="hard">Hard</label>
           </div>
@@ -160,7 +158,7 @@ export default function AddRecipe() {
             name="duration"
             id="duration"
             value={formData.duration || 0}
-            onChange={handleOnChange}
+            onChange={handleOnChangeFormData}
           />
         </div>
         <div className="form-group">
@@ -172,7 +170,7 @@ export default function AddRecipe() {
               name="name"
               id="name"
               value={currentIngredient.name}
-              onChange={handleOnChange}
+              onChange={handleOnChangeIngredient}
             />
             <label htmlFor="quantity">How much do you need:</label>
             <textarea
@@ -180,7 +178,7 @@ export default function AddRecipe() {
               name="quantity"
               id="quantity"
               value={currentIngredient.quantity}
-              onChange={handleOnChange}
+              onChange={handleOnChangeIngredient}
             />
             <button className="add-ingredients-btn" onClick={addIngredients}>
               Add
@@ -206,13 +204,13 @@ export default function AddRecipe() {
             name="instructions"
             id="instructions"
             value={formData.instructions}
-            onChange={handleOnChange}
+            onChange={handleOnChangeFormData}
           />
         </div>
       </form>
       <button
-        className={enabledSubmitBtn ? "add-recipe-btn" : "disabled"}
-        disabled={!enabledSubmitBtn}
+        className={!submitted ? "add-recipe-btn" : "disabled"}
+        disabled={submitted}
         onClick={handleSubmit}
       >
         Add Recipe

@@ -1,4 +1,4 @@
-import RecipesElement from "./RecipesElement.tsx"
+import RecipesCard from "./RecipesCard.tsx"
 import { Difficulty } from "../../assets/types.ts"
 import { BrowserRouter } from "react-router-dom"
 
@@ -9,7 +9,7 @@ import { render, screen } from "@testing-library/react"
 describe("RecipesElement", () => {
   it("should render properly", () => {
     render(
-      <RecipesElement
+      <RecipesCard
         id="G9niELZ5u4HZc62ul5PX"
         title="Sourdough Lemon Pancakes"
         image="pancakes-recipe.jpeg"
@@ -27,7 +27,7 @@ describe("RecipesElement", () => {
     const onClick = vi.fn()
     const id = "G9niELZ5u4HZc62ul5PX"
     render(
-      <RecipesElement
+      <RecipesCard
         id={id}
         title="Sourdough Lemon Pancakes"
         image="pancakes-recipe.jpeg"
@@ -50,7 +50,7 @@ describe("RecipesElement", () => {
   it("should add liked class when recipe's id is in liked recipes", () => {
     const id = "G9niELZ5u4HZc62ul5PX"
     render(
-      <RecipesElement
+      <RecipesCard
         id={id}
         title="Sourdough Lemon Pancakes"
         image="pancakes-recipe.jpeg"
