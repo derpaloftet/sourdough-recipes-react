@@ -25,7 +25,7 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
-  background-image: url("/public/bread-menu2.jpg");
+  background-image: url("/public/bread-menu2.avif");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 1.5rem;

@@ -67,11 +67,6 @@ Start the Vite development server:
 npm run dev
 ```
 
-In a separate terminal tab, start Tailwind CSS in watch mode:
-```shell
-npx tailwindcss -i ./src/App.css -o ./src/output.css --watch
-```
-
 ---
 
 The World of Sourdough: Making sourdough baking healthy, delicious, and effortless for everyone!
