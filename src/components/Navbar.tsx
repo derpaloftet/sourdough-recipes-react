@@ -10,7 +10,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="navbar-logo">
         <Link to="/">
-          <img className="navbar-img" src="/bread-logo.png" alt="Site Logo" />
+          <img className="navbar-img" src="/bread-logo.avif" alt="Site Logo" />
         </Link>
         <h1 className="navbar-header">The World of Sourdough</h1>
       </div>
