@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "test": "vitest",
-    "tailwind": "tailwindcss -i ./src/App.css -o ./src/output.css --watch"
+    "lhci": "lhci autorun"
   },
   "dependencies": {
     "ajv": "^8.17.1",
@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@lhci/cli": "^0.15.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
